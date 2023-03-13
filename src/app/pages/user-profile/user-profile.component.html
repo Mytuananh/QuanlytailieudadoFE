@@ -13,7 +13,7 @@
 </div>
 <div class="container-fluid mt--7">
   <div class="row">
-    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+    <!-- <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
       <div class="card card-profile shadow">
         <div class="row justify-content-center">
           <div class="col-lg-3 order-lg-2">
@@ -82,48 +82,57 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="col-xl-8 order-xl-1">
       <div class="card bg-secondary shadow">
         <div class="card-header bg-white border-0">
           <div class="row align-items-center">
             <div class="col-8">
-              <h3 class="mb-0">My account</h3>
+              <h3 class="mb-0">Tạo Công Trình mới</h3>
             </div>
             <div class="col-4 text-right">
-              <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+              <input
+                type="button"
+                class="btn btn-sm btn-primary"
+                value="Setting"
+              />
             </div>
           </div>
         </div>
         <div class="card-body">
-          <form>
-            <h6 class="heading-small text-muted mb-4">User information</h6>
+          <form (ngSubmit)="onSubmit()">
+            <h6 class="heading-small text-muted mb-4">Thông Tin Công Trình</h6>
             <div class="pl-lg-4">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-username"
-                      >Username</label
+                      >Tên Công Trình</label
                     >
                     <input
                       type="text"
                       id="input-username"
                       class="form-control form-control-alternative"
-                      placeholder="Username"
+                      placeholder="Tên Công Trình"
                       value="lucky.jesse"
+                      [(ngModel)]="tenCongTrinh"
+                      name="tenCongTrinh"
+                      required="required"
                     />
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-email"
-                      >Email address</label
+                      >File PDF</label
                     >
                     <input
-                      type="email"
-                      id="input-email"
+                      type="file"
+                      accept=".pdf"
                       class="form-control form-control-alternative"
-                      placeholder="jesse@example.com"
+                      (change)="onFileSelected($event)"
+                      [(ngModel)]="file"
+                      name="file"
                     />
                   </div>
                 </div>
@@ -132,28 +141,32 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-first-name"
-                      >First name</label
+                      >Chủ Thi Công</label
                     >
                     <input
                       type="text"
                       id="input-first-name"
                       class="form-control form-control-alternative"
-                      placeholder="First name"
+                      placeholder="Chủ Thi Công"
                       value="Lucky"
+                      [(ngModel)]="ownUser"
+                      name="ownUser"
                     />
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-last-name"
-                      >Last name</label
+                      >Mã Công Trình</label
                     >
                     <input
                       type="text"
                       id="input-last-name"
                       class="form-control form-control-alternative"
-                      placeholder="Last name"
+                      placeholder="Mã Công Trình"
                       value="Jesse"
+                      [(ngModel)]="code"
+                      name="code"
                     />
                   </div>
                 </div>
@@ -161,20 +174,22 @@
             </div>
             <hr class="my-4" />
             <!-- Address -->
-            <h6 class="heading-small text-muted mb-4">Contact information</h6>
+            <h6 class="heading-small text-muted mb-4">Thông tin Liên Quan</h6>
             <div class="pl-lg-4">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="form-control-label" for="input-address"
-                      >Address</label
+                      >Địa Chỉ</label
                     >
                     <input
                       id="input-address"
                       class="form-control form-control-alternative"
-                      placeholder="Home Address"
+                      placeholder="Địa Chỉ"
                       value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
                       type="text"
+                      [(ngModel)]="address"
+                      name="address"
                     />
                   </div>
                 </div>
@@ -183,41 +198,47 @@
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-city"
-                      >City</label
+                      >Thành Phố</label
                     >
                     <input
                       type="text"
                       id="input-city"
                       class="form-control form-control-alternative"
-                      placeholder="City"
-                      value="New York"
+                      placeholder="Thành Phố"
+                      value="Thành Phố"
+                      [(ngModel)]="city"
+                      name="city"
                     />
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-country"
-                      >Country</label
+                      >Quốc Gia</label
                     >
                     <input
                       type="text"
                       id="input-country"
                       class="form-control form-control-alternative"
-                      placeholder="Country"
+                      placeholder="Quốc Gia"
                       value="United States"
+                      [(ngModel)]="country"
+                      name="country"
                     />
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-country"
-                      >Postal code</label
+                      >Mã Bưu Điện</label
                     >
                     <input
                       type="number"
                       id="input-postal-code"
                       class="form-control form-control-alternative"
-                      placeholder="Postal code"
+                      placeholder="Mã Bưu Điện"
+                      [(ngModel)]="postCode"
+                      name="postCode"
                     />
                   </div>
                 </div>
@@ -225,19 +246,20 @@
             </div>
             <hr class="my-4" />
             <!-- Description -->
-            <h6 class="heading-small text-muted mb-4">About me</h6>
+            <h6 class="heading-small text-muted mb-4">Mô Tả</h6>
             <div class="pl-lg-4">
               <div class="form-group">
-                <label>About Me</label>
+                <label>Mô Tả</label>
                 <textarea
                   rows="4"
                   class="form-control form-control-alternative"
-                  placeholder="A few words about you ..."
-                >
-A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea
-                >
+                  placeholder="Mô Tả Về Công Trình"
+                  [(ngModel)]="description"
+                  name="description"
+                ></textarea>
               </div>
             </div>
+            <button type="submit" class="btn btn-primary">Tạo Mới</button>
           </form>
         </div>
       </div>

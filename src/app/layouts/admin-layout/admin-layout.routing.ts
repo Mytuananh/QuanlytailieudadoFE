@@ -5,7 +5,7 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { FileInfoComponent } from 'src/app/file-info/file-info.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'create',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },
     { path: 'file/:id',         component: FileInfoComponent },
 

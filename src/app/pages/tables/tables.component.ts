@@ -10,14 +10,7 @@ import {FileDTO} from "../../model/file-dto";
 })
 export class TablesComponent implements OnInit {
 
-  files: FileDTO[] = [    {
-    "id": 1,
-    "fileName": "1677865081668625 (1).pdf",
-    "code": "M2015",
-    "tenCongTrinh": "Codegym",
-    "createdUser": "an@gmail.com",
-    "createdTime": "2023-03-12T21:41:00.222513"
-}];
+  files: any[] = [];
 
   constructor(private http: HttpClient, private router: Router) { }
 
