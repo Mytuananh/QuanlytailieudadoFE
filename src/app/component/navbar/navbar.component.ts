@@ -12,12 +12,14 @@ export class NavbarComponent implements OnInit {
   public focus: any;
   public listTitles!: any[];
   public location: Location;
+  username: string | null | undefined;
   constructor(location: Location,  private element: ElementRef, private router: Router) {
     this.location = location;
   }
 
   ngOnInit() {
     this.listTitles = ROUTES.filter(listTitle => listTitle);
+    this.username = sessionStorage.getItem('username');
   }
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());

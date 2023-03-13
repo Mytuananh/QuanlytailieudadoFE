@@ -1,40 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { NgxExtendedPdfViewerService, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 
 @Component({
   selector: 'app-file-info',
   templateUrl: './file-info.component.html',
-  styleUrls: ['./file-info.component.scss']
+  styleUrls: ['./file-info.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FileInfoComponent implements OnInit {
   fileId!: string;
-  pdfData: any;
-  pdfSource =  "assets/a.pdf";
   fileUrl!: string;
-
-  constructor(
-    private route: ActivatedRoute,
-    private http: HttpClient
-  ) { }
-
-  ngOnInit() {
-    // this.route.params.subscribe(params => {
-    //   this.fileId = params['id'];
-    //   this.http.get(`http://localhost:8080/api/files/download/${this.fileId}`, {responseType: 'arraybuffer'}).subscribe(data => {
-    //     this.pdfData = new Uint8Array(data);
-    //   });
-    // });
+  fileName!: string | null;
+  prefix: string = 'http://localhost:8080/api/files/file/'
+  constructor(private pdfService: NgxExtendedPdfViewerService, private route: ActivatedRoute) {
+    pdfDefaultOptions.doubleTapZoomFactor = '150%'; // The default value is '200%'
+    pdfDefaultOptions.maxCanvasPixels = 4096 * 4096 * 5; // The default value is 4096 * 4096 pixels,
   }
 
-  // onFileSelected(event: any): void {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = (event) => {
-  //       this.fileUrl = event.target.result as string;
-  //     };
-  //   }
-  // }
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.fileName = params.get('fileName');
+      console.log(this.fileName);
+
+      this.fileUrl = this.prefix + this.fileName;
+    });
+  }
+
 }

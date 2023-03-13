@@ -16,9 +16,13 @@ export class AuthService {
 
   login(email: string, password: string) {
     this.http.post('http://localhost:8080/auth/authenticate', {email: email, password: password}).subscribe((response: any) => {
-      const jwt = response.jwt;
+      const jwtToken = response.token;
+      const username = response.username;
+
       // Lưu JWT vào session storage
-      sessionStorage.setItem('jwt', jwt);
+      sessionStorage.setItem('jwtToken', jwtToken);
+      sessionStorage.setItem('username', username);
+
       this.router.navigateByUrl('/tables');
     });
   }

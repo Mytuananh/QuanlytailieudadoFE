@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import {FileDTO} from "../../model/file-dto";
 
 @Component({
   selector: 'app-tables',
@@ -14,16 +13,17 @@ export class TablesComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  async ngOnInit(): Promise<void> {
-    await this.http.get('http://localhost:8080/api/files/all').subscribe((res: any) => {
+  ngOnInit(): void {
+    this.http.get('http://localhost:8080/api/files/all').subscribe((res: any) => {
       this.files = res;
       console.log(res);
       this.debug();
+
     });
   }
 
   navigateToFileInfo(file: any) {
-    this.router.navigate(['/file', file.id]);
+    this.router.navigate(['/file', file.fileName]);
   }
 
   debug() {
