@@ -1,3 +1,4 @@
+import { StartComponent } from './pages/start/start.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,12 +14,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
     ComponentsModule,
     FormsModule,
     HttpClientModule,
+    RouterModule
   ],
   providers: [
     DatePipe

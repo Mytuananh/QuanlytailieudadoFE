@@ -1,0 +1,82 @@
+<body>
+  <div class="body-background">
+    <img src="assetse/img/tlvn-background.jpg" class="body-background-1" />
+  </div>
+  <div class="body-logo">
+    <img src="assets/img/tlvn-logo.png" class="body-logo-1" />
+  </div>
+  <div class="body-title font-os">
+    <span class="body-title-1">hệ thống cơ sở dữ liệu ngành thủy lợi</span>
+  </div>
+  <div class="body-menu font-ro">
+    <div
+      routerLinkActive="active"
+      [routerLink]="['/tables']"
+      class="body-menu-1"
+      style="cursor: pointer"
+    >
+      <div class="body-menu-1-1"></div>
+      <div class="body-menu-1-2">Công trình</div>
+    </div>
+    <div
+      routerLinkActive="active"
+      [routerLink]="['/create']"
+      class="body-menu-1"
+      style="cursor: pointer"
+    >
+      <div class="body-menu-2-1"></div>
+      <div class="body-menu-2-2">Hồ sơ công trình</div>
+    </div>
+    <!-- <div
+      onclick="tlvn.loadAnToanIndex();"
+      class="body-menu-1 body-menu-1-active"
+    >
+      <div class="body-menu-3-1"></div>
+      <div class="body-menu-3-2">An toàn đập, hồ chứa</div>
+    </div>
+    <div
+      onclick="tlvn.loadtrangnsnt();"
+      class="body-menu-1"
+      style="cursor: pointer"
+    >
+      <div class="body-menu-4-1"></div>
+      <div class="body-menu-4-2">Nước sạch nông thôn</div>
+    </div> -->
+  </div>
+  <div class="body-ttlh">
+    <div class="body-ttlh-1">
+      Mọi ý kiến thắc mắc, góp ý xin vui lòng liên hệ với đơn vị phát triển sản
+      phẩm:
+    </div>
+    <div class="body-ttlh-2">
+      Trung Tâm Công Nghệ Phần Mềm Thủy Lợi - Viện Khoa học Thủy lợi Việt Nam
+    </div>
+    <div>
+      Địa chỉ: <span>Số 269 Chùa Bộc, Đống Đa, Hà Nội</span> Điện thoại:
+      <span>036 695 9986</span> Skype: <span>thuyloivietnam</span> Email:
+      <span>thuyloivietnam@cwrs-au.vn<span></span></span>
+    </div>
+  </div>
+
+  <script src="/Scripts/Customers/Home/tlvn.js?v=202001140159"></script>
+
+  <script>
+    $(document).ready(function () {
+      qlct_b_ClickButtonBackOrUp = false;
+      var isloadHPage = localStorage.getItem("isloadHomePage");
+      var homelinkObject = localStorage.getItem("homelinkObject");
+      if (homelinkObject) {
+        if (isloadHPage) {
+          localStorage.removeItem("isloadHomePage");
+        } else {
+          history.pushState({}, "", "/");
+          history.pushState({}, "", homelinkObject);
+          location.reload();
+        }
+      } else {
+        history.pushState({}, "", "/");
+        //QuanLyCongTrinhFn.LoadDataTagitLake();
+      }
+    });
+  </script>
+</body>

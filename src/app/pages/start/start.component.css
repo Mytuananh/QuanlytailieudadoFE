@@ -1,0 +1,282 @@
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.font-os {
+    font-family: 'Oswald' !important;
+}
+
+.font-ro {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.body-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.body-logo-1 {
+    width: 280px;
+}
+
+.body-background {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: #000;
+}
+
+.body-background-1 {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+.body-title {
+    position: absolute;
+    top: 18%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    text-align:center;
+}
+
+.body-title-1 {
+    color: #ffe240;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+
+.body-menu {
+    position: absolute;
+    top: 50%;
+    left: 77%;
+    transform: translate(-50%, -50%);
+    width: 304px;
+}
+
+.body-menu-1 {
+    background-color: rgba(3, 176, 255, 0.24);
+    margin: 0 0 15px 0;
+    color: #fff;
+    padding: 11px 6px;
+    border-radius: 4px;
+    height: 40px;
+    /*cursor: not-allowed;*/
+}
+
+
+.body-menu-1-active {
+    background-color: rgba(255,222,3,0.39);
+    cursor: pointer;
+}
+
+.body-menu-1-1 {
+    width: 45px;
+    float: left;
+    height: 100%;
+    background: url(../../../assets/img/tlvn-icon.png) no-repeat 5px -2px;
+    background-size: auto 46px;
+}
+
+.body-menu-2-1 {
+    width: 45px;
+    float: left;
+    height: 100%;
+    background: url(../../../assets/img/tlvn-icon.png) no-repeat -39px -2px;
+    background-size: auto 46px;
+}
+
+.body-menu-3-1 {
+    width: 45px;
+    float: left;
+    height: 100%;
+    background: url(../../../assets/img/tlvn-icon.png) no-repeat -94px -2px;
+    background-size: auto 46px;
+}
+
+.body-menu-4-1 {
+    width: 45px;
+    float: left;
+    height: 100%;
+    background: url(../../../assets/img/tlvn-icon.png) no-repeat -151px -2px;
+    background-size: auto 46px;
+}
+
+.body-menu-1-2 {
+    width: calc(100% - 70px);
+    float: left;
+    padding: 0 0 0 0px;
+    font-size: 22px;
+    margin: 0 0 0 24px;
+    position: relative;
+    top: -9px;
+}
+
+.body-menu-2-2 {
+    width: calc(100% - 70px);
+    float: left;
+    padding: 0 0 0 0px;
+    font-size: 22px;
+    margin: 0 0 0 24px;
+    position: relative;
+    top: -6px;
+}
+
+.body-menu-3-2 {
+    width: calc(100% - 70px);
+    float: left;
+    padding: 0 0 0 0px;
+    font-size: 22px;
+    margin: 0 0 0 24px;
+    position: relative;
+    top: 7px;
+}
+
+.body-menu-4-2 {
+    width: calc(100% - 70px);
+    float: left;
+    padding: 0 0 0 0px;
+    font-size: 22px;
+    margin: 0 0 0 24px;
+    position: relative;
+    top: 5px;
+}
+
+.body-ttlh-1 {
+    font-style: italic;
+}
+
+.body-ttlh-2 {
+    color: rgba(255,222,3,0.79);
+    font-size: 20px;
+}
+
+.body-ttlh span {
+    color: rgba(255,222,3,0.79);
+    margin-right: 15px;
+}
+
+    .body-ttlh span:last-child {
+        margin-right: 0px;
+    }
+
+
+
+
+.body-ttlh {
+    position: absolute;
+    bottom: 0%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    width: 840px;
+    line-height: 27px;
+    text-align: right;
+    color: #fff;
+}
+
+
+
+
+@media only screen and (max-width: 1100px) {
+    .body-menu {
+        left: 82%;
+    }
+
+    .body-logo-1 {
+        width: 240px;
+    }
+
+    .body-ttlh {
+        left: 56%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .body-menu {
+        left: 82%;
+    }
+
+    .body-logo-1 {
+        width: 240px;
+    }
+
+    .body-ttlh {
+        left: 56%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .body-menu {
+        left: 82%;
+    }
+
+    .body-logo-1 {
+        width: 240px;
+    }
+
+    .body-ttlh {
+        left: 52%;
+    }
+}
+
+
+/*Mobile*/
+
+
+.body-logo-m {
+    position: absolute;
+    top: 3%;
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.body-logo-m-1 {
+    width: 120px;
+}
+
+.body-title-m {
+    position: absolute;
+    top: 28%;
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.body-title-m-1 {
+    color: #ffe240;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.body-menu-m {
+    position: absolute;
+    top: 38%;
+    float: left;
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+}
