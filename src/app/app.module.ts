@@ -18,6 +18,9 @@ import { RouterModule } from '@angular/router';
 import { Man1Component } from './pages/man1/man1.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ConstructionComponent } from './pages/construction/construction.component';
+import { ConstructionNavDirective } from './directive/construction-nav.directive';
+import { ChangeTextDirective } from './directive/change-text.directive';
+import { RightBarActiveDirective } from './directive/right-bar-active.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { ConstructionComponent } from './pages/construction/construction.compone
     Man1Component,
     RegisterComponent,
     LoginComponent,
-    ConstructionComponent
+    ConstructionComponent,
+    ConstructionNavDirective,
+    ChangeTextDirective,
+    RightBarActiveDirective
   ],
   imports: [
     BrowserModule,

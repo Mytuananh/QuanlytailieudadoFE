@@ -5,6 +5,17 @@ body {
   background: #fafafa;
 }
 
+input {
+  width: 300px;
+}
+ul{
+  list-style: none;
+}
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  }
+
 p {
   font-family: 'Poppins', sans-serif;
   font-size: 1.1em;

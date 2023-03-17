@@ -1,73 +1,102 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<div class="wrapper" >
+<div class="wrapper">
   <!-- Sidebar  -->
   <nav id="sidebar" style="height: 570px">
     <div class="sidebar-header">
-      <h3 style="font-size: 16px; text-align: center">QUẢN LÝ HỒ SƠ KỸ THUẬT</h3>
+      <h3 style="font-size: 16px; text-align: center">
+        QUẢN LÝ HỒ SƠ KỸ THUẬT
+      </h3>
     </div>
 
-    <ul class="list-unstyled components" >
+    <ul class="list-unstyled components">
       <li class="active">
-        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Thông tin công trình</a>
+        <a
+          href="#homeSubmenu"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+          >Thông tin công trình</a
+        >
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li>
-            <a href="#">Cống dưới đê</a>
+            <a appChangeText [type]="'CONG'">Cống dưới đê</a>
           </li>
           <li>
-            <a href="#">Trạm bơm</a>
+            <a appChangeText [type]="'TRAM_BOM'">Trạm bơm</a>
           </li>
           <li>
-            <a href="#">Kênh cấp 1</a>
+            <a appChangeText [type]="'KENH_DAT'">Kênh cấp 1</a>
           </li>
           <li>
-            <a href="#">Kênh tưới sau trạm bơm</a>
+            <a appChangeText [type]="'KENH_TUOI'">Kênh tưới sau trạm bơm</a>
           </li>
           <li>
-            <a href="#">Công trình trên kênh</a>
+            <a appChangeText [type]="'KENH_XAY'">Công trình trên kênh</a>
           </li>
         </ul>
       </li>
       <li class="active">
-        <a href="#homeSubme" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hồ sơ sửa chữa</a>
+        <a
+          href="#homeSubme"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+          >Hồ sơ sửa chữa</a
+        >
         <ul class="collapse list-unstyled" id="homeSubme">
           <li>
-            <a href="#">Home 1</a>
+            <a>Home 1</a>
           </li>
           <li>
-            <a href="#">Home 2</a>
+            <a>Home 2</a>
           </li>
           <li>
-            <a href="#">Home 3</a>
+            <a>Home 3</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Thông tin quản lý CT</a>
+        <a
+          href="#pageSubmenu"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+          >Thông tin quản lý CT</a
+        >
         <ul class="collapse list-unstyled" id="pageSubmenu">
           <li>
-            <a href="#">Page 1</a>
+            <a>Page 1</a>
           </li>
           <li>
-            <a href="#">Page 2</a>
+            <a>Page 2</a>
           </li>
           <li>
-            <a href="#">Page 3</a>
+            <a>Page 3</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Các thông tin khác</a>
+        <a
+          href="#pageSubmenu"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+          >Các thông tin khác</a
+        >
         <ul class="collapse list-unstyled" id="pageSub">
           <li>
-            <a href="#">Page 1</a>
+            <a>Page 1</a>
           </li>
           <li>
-            <a href="#">Page 2</a>
+            <a>Page 2</a>
           </li>
           <li>
-            <a href="#">Page 3</a>
+            <a>Page 3</a>
           </li>
         </ul>
       </li>
@@ -75,23 +104,136 @@
   </nav>
   <nav id="sidebar1" style="height: 570px">
     <div class="sidebar-header">
-      <h3 style="font-size: 18px; text-align: center">DANH MỤC CỐNG DƯỚI ĐÊ</h3>
+      <h3 style="font-size: 18px; text-align: center" class="change-text">
+        DANH MỤC CỐNG DƯỚI ĐÊ
+      </h3>
+      <ul *ngFor="let construction of constructions; let i = index">
+        <li (click)="onChangeConstruction(i)" style="cursor: pointer">
+          {{ i + 1 }}. {{ construction.name }}
+        </li>
+      </ul>
     </div>
   </nav>
 </div>
-<div class="container" style="height: 300px; width: 930px; position: absolute; left: 237px; top: 2px">
-  <ul class="nav nav-tabs" style=" border-bottom: 2px solid #f2ac7f;">
-    <li class="active" ><a>THÔNG TIN CHUNG</a></li>
-    <li><a>THÔNG TIN QUẢN LÝ</a></li>
-    <li><a>HỒ SƠ CÔNG TRÌNH</a></li>
+<div
+  class="container"
+  style="height: 300px; width: 930px; position: absolute; left: 237px; top: 2px"
+>
+  <ul class="nav nav-tabs nav-list" style="border-bottom: 2px solid #f2ac7f">
+    <li class="active" navListActive><a>THÔNG TIN CHUNG</a></li>
+    <li navListActive><a>THÔNG TIN QUẢN LÝ</a></li>
+    <li navListActive><a>HỒ SƠ CÔNG TRÌNH</a></li>
   </ul>
-  <br>
-  <p><strong>Note:</strong> This example shows how to create a basic navigation tab. It is not toggleable/dynamic yet (you can't click on the links to display different content)- see the last example in the Bootstrap Tabs and Pills Tutorial to find out how this can be done.</p>
+  <br />
+  <form (ngSubmit)="(onSubmitConstruction)">
+    <h4>{{ index }} . {{ c.name }}</h4>
+    <table style="margin-left: 10px">
+      <tr style="padding-bottom: 10px">
+        <td class="col-2">- STT QĐ549:</td>
+        <td class="col-6">
+          <input type="text" [(ngModel)]="c.code" name="code" />
+        </td>
+      </tr>
+      <tr style="padding-bottom: 10px">
+        <td class="col-2">- Tên công trình:</td>
+        <td class="col-6">
+          <input type="text" [(ngModel)]="c.name" name="name" />
+        </td>
+      </tr>
+      <tr style="padding-bottom: 10px">
+        <td class="col-2">- Vị trí:</td>
+        <td class="col-6">
+          <input type="text" [(ngModel)]="c.location" name="location" />
+        </td>
+      </tr>
+      <tr style="padding-bottom: 10px">
+        <td class="col-2">- Quy mô:</td>
+        <td class="col-6">
+          <input type="text" [(ngModel)]="c.area" name="area" />
+        </td>
+      </tr>
+      <tr style="padding-bottom: 10px">
+        <td class="col-2">- Địa điểm:</td>
+        <td class="col-6">
+          <input type="text" [(ngModel)]="c.address" name="address" />
+        </td>
+      </tr>
+    </table>
+    <ng-container *ngIf="c.id !== null">
+      <button type="submit" #saveConstructionButton>Cập Nhật</button>
+      <input type="button" value="Tạo Mới" (click)="resetConstruction()" />
+    </ng-container>
+
+    <!-- Nếu c.id bằng null -->
+    <ng-container *ngIf="c.id === null">
+      <input type="submit" value="Tạo Mới" />
+    </ng-container>
+  </form>
+  <hr />
+  <p>HÌNH ẢNH CÔNG TRÌNH</p>
+  <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+  <div id="image-carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li
+        data-target="#image-carousel"
+        *ngFor="let image of images; let i = index"
+        [attr.data-slide-to]="i"
+        [class.active]="i === 0"
+      ></li>
+    </ol>
+
+    <div class="carousel-inner">
+      <div
+        *ngFor="let image of images; let i = index"
+        class="carousel-item"
+        [class.active]="i === 0"
+      >
+        <img [src]="image" class="d-block w-100" alt="..." />
+      </div>
+    </div>
+
+    <a
+      class="carousel-control-prev"
+      href="#image-carousel"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#image-carousel"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 </div>
 <script>
   $(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
-      $('#sidebar').toggleClass('active');
+    $("#sidebarCollapse").on("click", function () {
+      $("#sidebar").toggleClass("active");
+    });
+  });
+</script>
+
+<script>
+  const listItems = document.querySelectorAll("ul.nav-list > li");
+
+  // Thêm sự kiện click vào từng phần tử li
+  listItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      // Xoá class 'active' của tất cả các phần tử li
+      console.log("click");
+      listItems.forEach((li) => {
+        li.classList.remove("active");
+      });
+
+      // Thêm class 'active' cho phần tử li được nhấp
+      item.classList.add("active");
     });
   });
 </script>
