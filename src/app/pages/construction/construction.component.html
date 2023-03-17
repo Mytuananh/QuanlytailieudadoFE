@@ -1,1 +1,97 @@
-<p>construction works!</p>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="wrapper" >
+  <!-- Sidebar  -->
+  <nav id="sidebar" style="height: 570px">
+    <div class="sidebar-header">
+      <h3 style="font-size: 16px; text-align: center">QUẢN LÝ HỒ SƠ KỸ THUẬT</h3>
+    </div>
+
+    <ul class="list-unstyled components" >
+      <li class="active">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Thông tin công trình</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a href="#">Cống dưới đê</a>
+          </li>
+          <li>
+            <a href="#">Trạm bơm</a>
+          </li>
+          <li>
+            <a href="#">Kênh cấp 1</a>
+          </li>
+          <li>
+            <a href="#">Kênh tưới sau trạm bơm</a>
+          </li>
+          <li>
+            <a href="#">Công trình trên kênh</a>
+          </li>
+        </ul>
+      </li>
+      <li class="active">
+        <a href="#homeSubme" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hồ sơ sửa chữa</a>
+        <ul class="collapse list-unstyled" id="homeSubme">
+          <li>
+            <a href="#">Home 1</a>
+          </li>
+          <li>
+            <a href="#">Home 2</a>
+          </li>
+          <li>
+            <a href="#">Home 3</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Thông tin quản lý CT</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li>
+            <a href="#">Page 1</a>
+          </li>
+          <li>
+            <a href="#">Page 2</a>
+          </li>
+          <li>
+            <a href="#">Page 3</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Các thông tin khác</a>
+        <ul class="collapse list-unstyled" id="pageSub">
+          <li>
+            <a href="#">Page 1</a>
+          </li>
+          <li>
+            <a href="#">Page 2</a>
+          </li>
+          <li>
+            <a href="#">Page 3</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <nav id="sidebar1" style="height: 570px">
+    <div class="sidebar-header">
+      <h3 style="font-size: 18px; text-align: center">DANH MỤC CỐNG DƯỚI ĐÊ</h3>
+    </div>
+  </nav>
+</div>
+<div class="container" style="height: 300px; width: 930px; position: absolute; left: 237px; top: 2px">
+  <ul class="nav nav-tabs" style=" border-bottom: 2px solid #f2ac7f;">
+    <li class="active" ><a>THÔNG TIN CHUNG</a></li>
+    <li><a>THÔNG TIN QUẢN LÝ</a></li>
+    <li><a>HỒ SƠ CÔNG TRÌNH</a></li>
+  </ul>
+  <br>
+  <p><strong>Note:</strong> This example shows how to create a basic navigation tab. It is not toggleable/dynamic yet (you can't click on the links to display different content)- see the last example in the Bootstrap Tabs and Pills Tutorial to find out how this can be done.</p>
+</div>
+<script>
+  $(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+      $('#sidebar').toggleClass('active');
+    });
+  });
+</script>

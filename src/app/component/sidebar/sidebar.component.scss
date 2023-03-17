@@ -1,0 +1,60 @@
+.background-1{
+  height: 65px;
+  width: 1520px;
+  background-color: #4040f3;
+}
+.body-logo{
+  position: absolute;
+  top: 4.8%;
+  left: 3%;
+  transform: translate(-50%, -50%);
+}
+.body-logo-1{
+  width:50px;
+}
+.body-title-a{
+  position: absolute;
+  top: 3%;
+  left:230px;
+  transform: translate(-50%, -50%);
+  width: 200vh;
+  text-align: center;
+}
+.front-os{
+  font-family: 'Oswald', serif !important;
+}
+.body-title-1{
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+}
+.body-title-b{
+  position: absolute;
+  top: 5.5%;
+  left:230px;
+  transform: translate(-50%, -50%);
+  width: 200vh;
+  text-align: center;
+}
+.body-title-2{
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+}
+.avatar{
+  position: absolute;
+  background-color: #ffffff;
+  height: 45px;
+  width: 45px;
+  border-radius: 30px;
+  top: 1.5%;
+  left: 1260px;
+}
+.your-name{
+  color: white;
+  position: absolute;
+  top: 3%;
+  left: 1310px;
+  float: left;
+}
