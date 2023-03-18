@@ -55,7 +55,10 @@ export class ConstructionComponent implements OnInit {
   
   onSubmitConstruction() {
     if(this.c.id) {
-      this.constructionService.updateConstruction(this.c)
+      this.constructionService.updateConstruction(this.c).subscribe((response: any) => {
+        this.c = response;
+        location.reload();
+      })
     } else {
       console.log(this.c);
       const command = {
