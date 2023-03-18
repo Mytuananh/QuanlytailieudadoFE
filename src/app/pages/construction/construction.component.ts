@@ -57,7 +57,8 @@ export class ConstructionComponent implements OnInit {
     if(this.c.id) {
       this.constructionService.updateConstruction(this.c).subscribe((response: any) => {
         this.c = response;
-        location.reload();
+        console.log(response);
+        // location.reload();
       })
     } else {
       console.log(this.c);
@@ -89,6 +90,7 @@ export class ConstructionComponent implements OnInit {
         console.log('response:', response);
         this.images.push(response);
         console.log(this.images);
+        location.reload();
       },
       (error) => {
         console.log(error);

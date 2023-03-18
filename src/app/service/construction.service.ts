@@ -24,7 +24,7 @@ export class ConstructionService {
   }
 
   updateConstruction(construction: ConstructionDTO) {
-    return this.http.post(`http://localhost:8080/api/construction/update`, construction);
+    return this.http.post(`http://localhost:8080/api/construction/update/${construction.id}`, construction);
   }
 
   createConstruction(construction: any) {
