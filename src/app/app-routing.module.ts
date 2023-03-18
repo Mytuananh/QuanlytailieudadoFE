@@ -8,11 +8,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 const routes: Routes =[
-  {
-    path: '',
-    component: Man1Component,
-    pathMatch: 'full',
-  }, 
+  // {
+  //   path: '',
+  //   component: Man1Component,
+  //   pathMatch: 'full',
+  // }, 
   {
     path: 'mainMenu', component: Man1Component
   },
@@ -35,10 +35,6 @@ const routes: Routes =[
       }
     ]
   },
-  {
-    path: '**',
-    redirectTo: ''
-  }
 ];
 
 @NgModule({

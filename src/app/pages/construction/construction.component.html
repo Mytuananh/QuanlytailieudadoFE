@@ -160,12 +160,18 @@
       </tr>
     </table>
     <ng-container *ngIf="c.id !== null">
-      <button type="submit" #saveConstructionButton>Cập Nhật</button>
+      <button
+        type="submit"
+        #saveConstructionButton
+        (click)="onSubmitConstruction()"
+      >
+        Cập Nhật
+      </button>
       <input type="button" value="Tạo Mới" (click)="resetConstruction()" />
     </ng-container>
 
     <!-- Nếu c.id bằng null -->
-    <ng-container *ngIf="c.id === null">
+    <ng-container *ngIf="c == null || c.id === null">
       <input type="submit" value="Tạo Mới" />
     </ng-container>
   </form>

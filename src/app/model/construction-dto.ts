@@ -7,3 +7,4 @@ export interface ConstructionDTO {
     address: string,
     area: string,
 }
+ 

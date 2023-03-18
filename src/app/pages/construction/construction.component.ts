@@ -57,7 +57,19 @@ export class ConstructionComponent implements OnInit {
     if(this.c.id) {
       this.constructionService.updateConstruction(this.c)
     } else {
-      this.http.post
+      console.log(this.c);
+      const command = {
+        name: this.c.name,
+        code: this.c.code,
+        location: this.c.location,
+        type: this.c.type,
+        address: this.c.address,
+        area: this.c.area
+      }
+      this.http.post(`http://localhost:8080/api/construction/create`, command).subscribe((response: any) => {
+        this.c = response;
+        location.reload();
+      })
     }
   }
 
