@@ -1,5 +1,6 @@
 import { QuanlycongtrinhService } from './../../service/quanlycongtrinh.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,9 +15,15 @@ export class QuanlycongtrinhComponent implements OnInit {
   isEditing: boolean = false;
   isCreating: boolean = false;
 
+  @ViewChild('tabItems') tabItems!: ElementRef<HTMLDivElement>;
+  @ViewChild('tabPanes') tabPanes!: ElementRef<HTMLDivElement>;
+
   constructor(private quanlicongtrinhService: QuanlycongtrinhService, private router: Router) { }
 
   ngOnInit(): void {
+    
+
+
     this.quanlicongtrinhService.initData().subscribe((response: any) => {
       console.log(response);
       this.listCT = response;
@@ -32,6 +39,26 @@ export class QuanlycongtrinhComponent implements OnInit {
 
     this.quanlicongtrinhService.getListFile(this.congtrinh.maCT).subscribe((response: any) => {
       this.congtrinh.files = response;
+      const tabs = this.tabItems.nativeElement.querySelectorAll('.tab-item');
+      const panes = this.tabPanes.nativeElement.querySelectorAll('.tab-pane');
+
+      tabs.forEach((tab, index) => {
+        console.log(index);
+        const pane = panes[index];
+
+        tab.addEventListener('click', () => {
+          const activeTab = this.tabItems.nativeElement.querySelector('.tab-item.active');
+          const activePane = this.tabPanes.nativeElement.querySelector('.tab-pane.active');
+
+          if(activeTab && activePane) {
+            activeTab.classList.remove('active');
+            activePane.classList.remove('active');
+          }
+
+          tab.classList.add('active');
+          pane.classList.add('active');
+        });
+      });
     })
   }
 
@@ -62,7 +89,7 @@ export class QuanlycongtrinhComponent implements OnInit {
     this.quanlicongtrinhService.createCongTrinh(formData).subscribe((response: any) => {
       console.log(response);
       this.congtrinh = response;
-      // location.reload();
+      location.reload();
     });
   }
 
@@ -91,14 +118,14 @@ export class QuanlycongtrinhComponent implements OnInit {
     const mySideQlct = document.getElementById("my-side-qlct-1");
     if (mySideQlct) mySideQlct.style.width = "30vh";
     const e2 = document.getElementById("main-my-side-qlct")
-    if (e2) e2.style.marginLeft = "30vh";
+    if (e2) e2.style.marginRight = "30vh";
   }
     
   closeSide1() {
     const mySideQlct = document.getElementById("my-side-qlct-1");
     if (mySideQlct) mySideQlct.style.width = "0";
     const e2 = document.getElementById("main-my-side-qlct")
-    if (e2) e2.style.marginLeft = "30vh";
+    if (e2) e2.style.marginRight = "0";
   }
 
   activateTab(index: number) {
