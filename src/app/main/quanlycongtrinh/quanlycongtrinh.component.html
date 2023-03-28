@@ -1,0 +1,298 @@
+<div class="body-qlct-2">
+  <div class="body-qlct-2-1">
+    <div class="qlct-1">
+      <div class="qlct-1-1"></div>
+      <div class="qlct-1-2">QUẢN LÝ CÔNG TRÌNH</div>
+      <div class="qlct-1-3"></div>
+    </div>
+    <div class="qlct-2" style="cursor: pointer" (click)="openSide()">
+      <div class="qlct-2-1">CỐNG DƯỚI ĐÊ</div>
+    </div>
+    <div class="qlct-3" style="cursor: pointer" (click)="openSide()">
+      <div class="qlct-3-1">TRẠM BƠM</div>
+    </div>
+    <div class="qlct-4" style="cursor: pointer" (click)="openSide()">
+      <div class="qlct-4-1">CÔNG TRÌNH KÊNH</div>
+    </div>
+    <div class="qlct-5" style="cursor: pointer" (click)="openSide()">
+      <div class="qlct-5-1">CÔNG TRÌNH KÊNH TƯỚI CẤP I</div>
+    </div>
+    <div class="qlct-6" style="cursor: pointer" (click)="openSide()">
+      <div class="qlct-6-1">CÔNG TRÌNH TRÊN KÊNH</div>
+    </div>
+    <div class="qlct-7" style="cursor: pointer" (click)="openSide()">
+      <div class="qlct-7-1">CÔNG TRÌNH KHÁC</div>
+    </div>
+  </div>
+  <div class="side-qlct">
+    <div id="my-side-qlct" class="side-qlct-1">
+      <div class="side-1">
+        <div class="side-1-1">
+          <div class="side-1-1-1">
+            <a
+              href="javascript: void(0)"
+              class="close-side"
+              (click)="closeSide()"
+              ><i class="fa fa-angle-double-left" aria-hidden="true"></i
+            ></a>
+          </div>
+          <div class="side-1-1-2">DANH MỤC</div>
+        </div>
+        <div class="search-1">
+          <form action="#">
+            <input type="text" name="Name" placeholder="Nhập thông tin..." />
+            <button type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div
+        class="side-2"
+        *ngFor="let ct of listCT; let i = index"
+        class="{{ ct.name }}"
+      >
+        <a (click)="changeCongTrinhTo(i)" style="cursor: pointer"
+          >{{ i + 1 }}.{{ ct.name }}</a
+        >
+      </div>
+    </div>
+  </div>
+  <div id="main-my-side-qlct" class="body-qlct-2-2">
+    <div class="tabs">
+      <div class="tab-item active">THÔNG TIN CHUNG</div>
+      <div class="tab-item">THÔNG TIN QUẢN LÝ</div>
+      <div class="tab-item">HỒ SƠ CÔNG TRÌNH</div>
+      <div class="tab-item">HỒ SƠ VI PHẠM</div>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-pane active">
+        <div class="menu-1">
+          <div class="crud">
+            <div class="icon-1" (click)="create()">
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="icon-2" (click)="edit()">
+              <i class="fas fa-edit"></i>
+            </div>
+            <div class="icon-3" (click)="deleteCT()">
+              <i class="fas fa-trash"></i>
+            </div>
+          </div>
+          <div class="crud-1"></div>
+          <div class="crud-2" (click)="openSide1()">
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+        <div class="content-1">
+          <div class="content-1-1">
+            <table class="content-1-a">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>HẠNG MỤC</th>
+                  <th>MÔ TẢ</th>
+                  <th>DỮ LIỆU</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td style="text-align: left">MÃ CÔNG TRÌNH:</td>
+                  <td style="text-align: left">
+                    <ng-container *ngIf="!isEditing; else editMode1">
+                      {{ congtrinh.maCT }}
+                    </ng-container>
+                    <ng-template #editMode1>
+                      <input type="text" [(ngModel)]="congtrinh.maCT" />
+                    </ng-template>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td style="text-align: left">TÊN CÔNG TRÌNH:</td>
+                  <td style="text-align: left">
+                    <ng-container *ngIf="!isEditing; else editMode2">
+                      {{ congtrinh.name }}
+                    </ng-container>
+                    <ng-template #editMode2>
+                      <input type="text" [(ngModel)]="congtrinh.name" />
+                    </ng-template>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td style="text-align: left">VỊ TRÍ/ĐỊA ĐIỂM:</td>
+                  <td style="text-align: left">
+                    <ng-container *ngIf="!isEditing; else editMode3">
+                      {{ congtrinh.viTri }}
+                    </ng-container>
+                    <ng-template #editMode3>
+                      <input type="text" [(ngModel)]="congtrinh.viTri" />
+                    </ng-template>
+                  </td>
+                  <td
+                    onclick="td()"
+                    style="cursor: pointer; text-decoration-line: underline"
+                  >
+                    Link Map
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td style="text-align: left">QUY MÔ</td>
+                  <td style="text-align: left">
+                    <ng-container *ngIf="!isEditing; else editMode4">
+                      {{ congtrinh.quyMo }}
+                    </ng-container>
+                    <ng-template #editMode4>
+                      <input type="text" [(ngModel)]="congtrinh.quyMo" />
+                    </ng-template>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td style="text-align: left">THIẾT BỊ:</td>
+                  <td style="text-align: left">
+                    <ng-container *ngIf="!isEditing; else editMode5">
+                      {{ congtrinh.thietBi }}
+                    </ng-container>
+                    <ng-template #editMode5>
+                      <input type="text" [(ngModel)]="congtrinh.thietBi" />
+                    </ng-template>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td style="text-align: left">CÔNG TRÌNH LIÊN QUAN</td>
+                  <td style="text-align: left">
+                    {{
+                      congtrinh.tenCongTrinhLienQuan
+                        ? congtrinh.tenCongTrinhLienQuan.length()
+                        : 0
+                    }}
+                  </td>
+                  <td>
+                    <label>
+                      <select onclick="hp()">
+                        <option
+                          style="
+                            cursor: pointer;
+                            text-decoration-line: underline;
+                          "
+                        >
+                          Kênh trước cống
+                        </option>
+                        <option
+                          style="
+                            cursor: pointer;
+                            text-decoration-line: underline;
+                          "
+                        >
+                          Kênh sau cống cống
+                        </option>
+                      </select>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td style="text-align: left">THÔNG TIN KHÁC</td>
+                  <td style="text-align: left">
+                    <ng-container *ngIf="!isEditing; else editMode6">
+                      {{ congtrinh.thongTinKhac }}
+                    </ng-container>
+                    <ng-template #editMode6>
+                      <input type="text" [(ngModel)]="congtrinh.thongTinKhac" />
+                    </ng-template>
+                  </td>
+                  <td
+                    onclick="th()"
+                    style="cursor: pointer; text-decoration-line: underline"
+                  >
+                    File HS đính kèm
+                  </td>
+                </tr>
+              </tbody>
+
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="content-1-2">
+            <div class="content-1-2-a">HÌNH ẢNH CÔNG TRÌNH</div>
+            <div class="content-1-2-b">
+              <div
+                id="carouselExampleInterval"
+                class="carousel slide"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div
+                    class="carousel-item"
+                    *ngFor="let img of congtrinh.images; let i = index"
+                    [ngClass]="i == 0 ? 'active' : ''"
+                    data-bs-interval="10000"
+                  >
+                    <img
+                      [src]="'http://localhost:8080/api/images/preview/' + img"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselExampleInterval"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselExampleInterval"
+                  data-bs-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane">b</div>
+      <div class="tab-pane">c</div>
+      <div class="tab-pane">d</div>
+    </div>
+  </div>
+  <div id="my-side-qlct-1" class="side-qlct-1-his">
+    <div class="side-1-his">
+      <div class="side-1-1-his">
+        <div class="side-1-1-1-his">
+          <a
+            href="javascript: void(0)"
+            class="close-side-1"
+            (click)="closeSide1()"
+            ><i class="fa fa-angle-double-right" aria-hidden="true"></i
+          ></a>
+        </div>
+        <div class="side-1-1-2-his">LỊCH SỬ CHỈNH SỬA</div>
+      </div>
+    </div>
+    <div class="side-2-his"></div>
+  </div>
+</div>

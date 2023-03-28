@@ -1,0 +1,53 @@
+.body-1{
+    display: flex;
+    width: 100%;
+    height: 8vh;
+    background-color: rgba(0, 0, 255, 0.8);
+    padding: 0.2vh;
+}
+.body-logo-1{
+    width: 4%;
+    height: 100%;
+}
+.body-logo-1 img{
+    width: 100%;
+    height: 100%;
+}
+.body-title-1{
+    width: 65%;
+    height: 100%;
+    text-align: left;
+}
+.body-title-1-1{
+    margin-top: 1vh;
+    font-weight: bold;
+    color: #ffffff;
+    margin-left: 2vh;
+    font-size: 2.5vh;
+    height: 3vh;
+}
+.body-title-1-2{
+    color: #ffffff;
+    font-size: 2vh;
+    margin-left: 1vh;
+    height: 2.5vh;
+}
+.body-user-ava{
+    width: 31%;
+    display: flex;
+    height: 100%;
+}
+.avatar-1 img{
+    margin-left: 1vh;
+    margin-top: 1vh;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 360px;
+}
+
+.username{
+    color: white;
+    margin-top: 2vh;
+    font-size: 2.5vh;
+    margin-left: 1vh;
+}

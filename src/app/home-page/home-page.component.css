@@ -1,0 +1,1286 @@
+.background-body{
+    background-image: url("../../assets/anh/Home - background.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.logo-1 img{
+   width: 100px;
+   margin-left: 10px;
+}
+.logo-2 img{
+    width: 90px;
+    margin-left: 500px;
+    margin-top: -200px;
+    animation: spinner 2s infinite linear;
+}
+html, body {
+    height: 100%;
+}
+.title{
+    color: white;
+    font-family: Arial, "Times New Roman", serif;
+    text-shadow: -8px -5px 10px white;
+}
+.title-1{
+    font-size: 50px;
+    margin-left: 150px;
+    margin-top: -40px;
+    font-weight: bold;
+}
+.title-2{
+    font-size: 30px;
+    margin-left: 85px;
+    margin-top: 2px;
+}
+.image-1{
+    background-image: url("../../assets/anh/nen anh-2.png");
+    height: 40vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 700px;
+    margin-top: -100px;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+.image-1-1 {
+    max-width: 100%;
+    max-height: 100%;
+}
+.image-2{
+    background-image: url("../../assets/anh/nen anh-1.png");
+    height: 45vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left:350px;
+    margin-top: -150px;
+    justify-content: center;
+    align-items: center;
+    padding: 17px;
+}
+.image-2-1{
+   max-width: 100%;
+    max-height: 100%;
+}
+.title-choose{
+    margin-left:1150px;
+    color: white;
+    margin-top: -180px;
+}
+.title-choose-1{
+    font-size: 30px;
+    margin-left: 30px;
+}
+.title-choose-2{
+    font-size: 20px;
+}
+.gach-chan img{
+    width: 300px;
+    margin-left: 20px;
+}
+@media all and (min-width: 1100px) and (max-width: 1369px){
+    .background-body {
+        background-position: left;
+    }
+    .logo-2 img{
+        width: 50px;
+        margin-left: 340px;
+    }
+    .title-1{
+        font-size: 25px;
+        margin-left: 13.5%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 13px;
+        margin-left: 10%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 600px;
+        margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+        padding: 7px;
+    }
+    .image-1-1 {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 35vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 200px;
+        margin-top: -50px;
+        justify-content: center;
+        align-items: center;
+        padding: 9px;
+    }
+    .image-2-1{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .title-choose{
+        margin-left:850px;
+        color: white;
+        margin-top: -180px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (max-width: 1024px){
+    .background-body {
+        background-position: left;
+    }
+    .logo-1 img{
+        width: 8vh;
+        margin-left: 10px;
+    }
+
+}
+@media all and (min-width: 1023px) and (max-width: 1100px){
+    .logo-2 img{
+        width: 70px;
+        margin-left: 400px;
+    }
+    .title-1{
+        font-size: 40px;
+        margin-left: 15%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 25px;
+        margin-left: 9%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 380px;
+        margin-top: 10px;
+    }
+    .image-1-1 img{
+        height: 33vh;
+        padding: 8px 10px;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 35vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 50px;
+        margin-top: -80px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left:600px;
+        color: white;
+        margin-top: -100px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 1080px) and (max-width: 1023px){
+    .logo-2 img{
+        width: 70px;
+        margin-left: 400px;
+    }
+    .title-1{
+        font-size: 40px;
+        margin-left: 15%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 25px;
+        margin-left: 9%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 380px;
+        margin-top: 10px;
+    }
+    .image-1-1 img{
+        height: 33vh;
+        padding: 8px 10px;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 35vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 150px;
+        margin-top: -80px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left:600px;
+        color: white;
+        margin-top: -100px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 915px) and (max-width: 1080px){
+    .logo-2 img{
+        width: 70px;
+        margin-left: 400px;
+    }
+    .title-1{
+        font-size: 40px;
+        margin-left: 15%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 25px;
+        margin-left: 9%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 380px;
+        margin-top: 10px;
+    }
+    .image-1-1 img{
+        height: 33vh;
+        padding: 8px 10px;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 35vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 200px;
+        margin-top: -80px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left:500px;
+        color: white;
+        margin-top: -100px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 913px) and (max-width: 915px){
+    .logo-2 img{
+        width: 70px;
+        margin-left: 400px;
+    }
+    .title-1{
+        font-size: 40px;
+        margin-left: 15%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 25px;
+        margin-left: 9%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 400px;
+        margin-top: 10px;
+    }
+    .image-1-1 img{
+        height: 33vh;
+        padding: 8px 10px;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 35vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 250px;
+        margin-top: -80px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left: 500px;
+        color: white;
+        margin-top: -80px;
+    }
+    .title-choose-1{
+        font-size: 20px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 15px;
+    }
+    .gach-chan img{
+        width: 150px;
+        margin-left: 50px;
+    }
+}
+@media all and (min-width: 911px) and (max-width: 913px){
+    .logo-2 img{
+        width: 70px;
+        margin-left: 400px;
+    }
+    .title-1{
+        font-size: 40px;
+        margin-left: 15%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 25px;
+        margin-left: 9%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 20vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 400px;
+        margin-top: 10px;
+    }
+    .image-1-1 img{
+        height: 33vh;
+        padding: 8px 10px;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 25vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 50px;
+        margin-top: -80px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left: 150px;
+        color: white;
+        margin-top: 80px;
+    }
+    .title-choose-1{
+        font-size: 50px;
+        margin-left: 100px;
+    }
+    .title-choose-2{
+        font-size: 40px;
+    }
+    .gach-chan img{
+        width: 550px;
+        margin-left: 50px;
+    }
+}
+@media all and (min-width: 840px) and (max-width: 911px){
+    .logo-2 img{
+        width: 70px;
+        margin-left: 400px;
+    }
+    .title-1{
+        font-size: 40px;
+        margin-left: 15%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 25px;
+        margin-left: 9%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 400px;
+        margin-top: 10px;
+    }
+    .image-1-1 img{
+        height: 33vh;
+        padding: 8px 10px;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 35vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 250px;
+        margin-top: -80px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left: 500px;
+        color: white;
+        margin-top: -80px;
+    }
+    .title-choose-1{
+        font-size: 20px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 15px;
+    }
+    .gach-chan img{
+        width: 150px;
+        margin-left: 50px;
+    }
+}
+@media all and (min-width: 769px) and (max-width: 840px){
+    .logo-2 img{
+        width: 70px;
+        margin-left: 400px;
+    }
+    .title-1{
+        font-size: 40px;
+        margin-left: 15%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 25px;
+        margin-left: 9%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 15vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 450px;
+        margin-top: 100px;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+    }
+    .image-1-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 20vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left:150px;
+        margin-top: -80px;
+        justify-content: center;
+        align-items: center;
+        padding: 17px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left:100px;
+        color: white;
+        margin-top: 100px;
+    }
+    .title-choose-1{
+        font-size: 50px;
+        margin-left: 100px;
+    }
+    .title-choose-2{
+        font-size: 40px;
+    }
+    .gach-chan img{
+        width: 500px;
+        margin-left: 100px;
+    }
+}
+@media all and (min-width: 741px) and (max-width: 769px){
+    .logo-2 img{
+        width: 70px;
+        margin-left: 400px;
+    }
+    .title-1{
+        font-size: 40px;
+        margin-left: 15%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 25px;
+        margin-left: 9%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 20vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 350px;
+        margin-top: 100px;
+    }
+    .image-1-1 img{
+        height: 33vh;
+        padding: 8px 10px;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 25vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 100px;
+        margin-top: -80px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left:400px;
+        color: white;
+        margin-top: 20px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 730px) and (max-width: 741px){
+    .logo-2 img{
+        width: 70px;
+        margin-left: 400px;
+    }
+    .title-1{
+        font-size: 40px;
+        margin-left: 15%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 25px;
+        margin-left: 9%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 200px;
+        margin-top: 10px;
+    }
+    .image-1-1 img{
+        height: 33vh;
+        padding: 8px 10px;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 35vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 50px;
+        margin-top: -80px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left:400px;
+        color: white;
+        margin-top: -100px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 719px) and (max-width: 730px){
+    .logo-2 img{
+        width: 70px;
+        margin-left: 400px;
+    }
+    .title-1{
+        font-size: 40px;
+        margin-left: 15%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 25px;
+        margin-left: 9%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 20vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 300px;
+        margin-top: 10px;
+    }
+    .image-1-1 img{
+        height: 33vh;
+        padding: 8px 10px;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 25vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 150px;
+        margin-top: -80px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left:300px;
+        color: white;
+        margin-top: 10px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 667px) and (max-width: 719px) {
+    .logo-2 img{
+        width: 50px;
+        margin-left: 230px;
+    }
+    .title-1{
+        font-size: 25px;
+        margin-left: 13.5%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 13px;
+        margin-left: 10%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 300px;
+        margin-top: 5px;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+    }
+    .image-1-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 35vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left:130px;
+        margin-top: -50px;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+    }
+    .image-2-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .title-choose{
+        margin-left:350px;
+        color: white;
+        margin-top: -50px;
+    }
+    .title-choose-1{
+        font-size: 20px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 15px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: -40px;
+    }
+}
+@media all and (min-width: 653px) and (max-width: 667px) {
+    .logo-2 img{
+        width: 50px;
+        margin-left: 230px;
+    }
+    .title-1{
+        font-size: 25px;
+        margin-left: 13.5%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 13px;
+        margin-left: 10%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 300px;
+        margin-top: 5px;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+    }
+    .image-1-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 35vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left:180px;
+        margin-top: -50px;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+    }
+    .image-2-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .title-choose{
+        margin-left:350px;
+        color: white;
+        margin-top: -50px;
+    }
+    .title-choose-1{
+        font-size: 20px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 15px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: -40px;
+    }
+}
+@media all and (min-width: 539px) and (max-width: 653px) {
+    .logo-2 img{
+        width: 50px;
+        margin-left: 230px;
+    }
+    .title-1{
+        font-size: 25px;
+        margin-left: 13.5%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 13px;
+        margin-left: 10%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 15vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 250px;
+        margin-top: 5px;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+    }
+    .image-1-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 20vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left:100px;
+        margin-top: -50px;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+    }
+    .image-2-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .title-choose{
+        margin-left:100px;
+        color: white;
+        margin-top: 80px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 415px) and (max-width: 539px) {
+    .logo-2 img{
+        width: 50px;
+        margin-left: 230px;
+    }
+    .title-1{
+        font-size: 25px;
+        margin-left: 13.5%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 13px;
+        margin-left: 10%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 10vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 300px;
+        margin-top: 5px;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+    }
+    .image-1-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 15vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left:150px;
+        margin-top: -50px;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+    }
+    .image-2-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .title-choose{
+        margin-left:50px;
+        color: white;
+        margin-top: 80px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 414px) and (max-width: 415px) {
+    .logo-2 img{
+        width: 50px;
+        margin-left: 230px;
+    }
+    .title-1{
+        font-size: 25px;
+        margin-left: 13.5%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 13px;
+        margin-left: 10%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 10vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 200px;
+        margin-top: 5px;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+    }
+    .image-1-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 15vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left:50px;
+        margin-top: -50px;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+    }
+    .image-2-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .title-choose{
+        margin-left:50px;
+        color: white;
+        margin-top: 80px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 412px) and (max-width: 414px) {
+    .logo-2 img{
+        width: 50px;
+        margin-left: 230px;
+    }
+    .title-1{
+        font-size: 25px;
+        margin-left: 13.5%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 13px;
+        margin-left: 10%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 10vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 300px;
+        margin-top: 5px;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+    }
+    .image-1-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 15vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left:150px;
+        margin-top: -50px;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+    }
+    .image-2-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .title-choose{
+        margin-left:50px;
+        color: white;
+        margin-top: 80px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 355px) and (max-width: 412px) {
+    .logo-2 img{
+        width: 50px;
+        margin-left: 230px;
+    }
+    .title-1{
+        font-size: 25px;
+        margin-left: 13.5%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 13px;
+        margin-left: 10%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 10vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 180px;
+        margin-top: 50px;
+        padding: 3px;
+    }
+    .image-1-1 img{
+       max-width: 100%;
+       max-height: 100%;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 15vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 50px;
+        margin-top: -50px;
+        padding: 5px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+    .title-choose{
+        margin-left:20px;
+        color: white;
+        margin-top: 80px;
+    }
+    .title-choose-1{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .title-choose-2{
+        font-size: 20px;
+    }
+    .gach-chan img{
+        width: 300px;
+        margin-left: 20px;
+    }
+}
+@media all and (min-width: 281px) and (max-width: 355px) {
+    .logo-2 img{
+        width: 50px;
+        margin-left: 230px;
+    }
+    .title-1{
+        font-size: 25px;
+        margin-left: 13.5%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 13px;
+        margin-left: 10%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 10vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 200px;
+        margin-top: 50px;
+    }
+    .image-1-1 img{
+        height: 33vh;
+        padding: 8px 10px;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 15vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 50px;
+        margin-top: -50px;
+    }
+    .image-2-1 img{
+        height: 37vh;
+        padding: 20px 20px 20px 20px;
+    }
+}
+@media all and (max-width: 281px) {
+    .logo-2 img{
+        width: 40px;
+        margin-left: 210px;
+    }
+    .title-1{
+        font-size: 25px;
+        margin-left: 13.5%;
+        margin-top: -20px;
+        font-weight: bold;
+    }
+    .title-2{
+        font-size: 13px;
+        margin-left: 7.5%;
+        margin-top: 2px;
+    }
+    .image-1{
+        background-image: url("../../assets/anh/nen anh-2.png");
+        height: 10vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 150px;
+        margin-top: 40px;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+    }
+    .image-1-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .image-2{
+        background-image: url("../../assets/anh/nen anh-1.png");
+        height: 15vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left:30px;
+        margin-top: -50px;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+    }
+    .image-2-1 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .title-choose{
+        margin-left:60px;
+        color: white;
+        margin-top: 50px;
+    }
+    .title-choose-1{
+        font-size: 15px;
+        margin-left: 15px;
+    }
+    .title-choose-2{
+        font-size: 10px;
+    }
+    .gach-chan img{
+        width: 200px;
+        margin-left: -30px;
+    }
+}
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
