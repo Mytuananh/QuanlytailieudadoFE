@@ -8,8 +8,8 @@ export class QuanlycongtrinhService {
 
   constructor(private http: HttpClient) { }
 
-  initData() {
-    return this.http.get('http://localhost:8080/api/cong-trinh/type?type=CONG');
+  getData(type: string) {
+    return this.http.get(`http://localhost:8080/api/cong-trinh/type?type=${type}`);
   }
 
   getListImage(maCT: string) {
@@ -22,5 +22,29 @@ export class QuanlycongtrinhService {
 
   createCongTrinh(congTrinhDto: any) {
     return this.http.post(`http://localhost:8080/api/cong-trinh/create-cong-trinh`, congTrinhDto);
+  }
+
+  updateCongTrinh(congTrinhDto: any) {
+    return this.http.post(`http://localhost:8080/api/cong-trinh/update-cong-trinh`, congTrinhDto);
+  }
+
+  deleteCongTrinh(maCT: String) {
+    return this.http.post(`http://localhost:8080/api/cong-trinh/delete-cong-trinh`, maCT); 
+  }
+
+  uploadImage(uploadImageDTO: any) {
+    return this.http.post(`http://localhost:8080/api/cong-trinh/upload-image`, uploadImageDTO)
+  }
+
+  uploadFile(uploadFileDTO: any) {
+    return this.http.post(`http://localhost:8080/api/cong-trinh/upload-file`, uploadFileDTO)
+  }
+
+  deleteFile(body: any) {
+    return this.http.post(`http://localhost:8080/api/cong-trinh/delete-file`, body)
+  }
+
+  getLichSuCongTrinh(maCT: string) {
+    return this.http.get(`http://localhost:8080/api/cong-trinh/lich-su/${maCT}`)
   }
 }
