@@ -21,6 +21,6 @@ export class QuanlycongtrinhService {
   }
 
   createCongTrinh(congTrinhDto: any) {
-    return this.http.post(`http://localhost:8080/api/cong-trinh/create-cong-tring`, congTrinhDto);
+    return this.http.post(`http://localhost:8080/api/cong-trinh/create-cong-trinh`, congTrinhDto);
   }
 }

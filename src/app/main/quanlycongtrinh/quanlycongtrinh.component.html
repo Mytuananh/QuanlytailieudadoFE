@@ -70,7 +70,11 @@
       <div class="tab-pane active">
         <div class="menu-1">
           <div class="crud">
-            <div class="icon-1" (click)="create()">
+            <div
+              class="icon-1"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
               <i class="fas fa-plus"></i>
             </div>
             <div class="icon-2" (click)="edit()">
@@ -101,12 +105,15 @@
                   <td>1</td>
                   <td style="text-align: left">MÃ CÔNG TRÌNH:</td>
                   <td style="text-align: left">
-                    <ng-container *ngIf="!isEditing; else editMode1">
+                    <ng-container *ngIf="!isEditing && !isCreating">
                       {{ congtrinh.maCT }}
                     </ng-container>
-                    <ng-template #editMode1>
+                    <ng-container *ngIf="isEditing">
                       <input type="text" [(ngModel)]="congtrinh.maCT" />
-                    </ng-template>
+                    </ng-container>
+                    <ng-container *ngIf="isCreating">
+                      <input type="text" [(ngModel)]="congtrinh.maCT" />
+                    </ng-container>
                   </td>
                   <td></td>
                 </tr>
@@ -114,12 +121,15 @@
                   <td>2</td>
                   <td style="text-align: left">TÊN CÔNG TRÌNH:</td>
                   <td style="text-align: left">
-                    <ng-container *ngIf="!isEditing; else editMode2">
+                    <ng-container *ngIf="!isEditing && !isCreating">
                       {{ congtrinh.name }}
                     </ng-container>
-                    <ng-template #editMode2>
+                    <ng-container *ngIf="isEditing">
                       <input type="text" [(ngModel)]="congtrinh.name" />
-                    </ng-template>
+                    </ng-container>
+                    <ng-container *ngIf="isCreating">
+                      <input type="text" [(ngModel)]="congtrinh.name" />
+                    </ng-container>
                   </td>
                   <td></td>
                 </tr>
@@ -127,12 +137,15 @@
                   <td>3</td>
                   <td style="text-align: left">VỊ TRÍ/ĐỊA ĐIỂM:</td>
                   <td style="text-align: left">
-                    <ng-container *ngIf="!isEditing; else editMode3">
+                    <ng-container *ngIf="!isEditing && !isCreating">
                       {{ congtrinh.viTri }}
                     </ng-container>
-                    <ng-template #editMode3>
+                    <ng-container *ngIf="isEditing">
                       <input type="text" [(ngModel)]="congtrinh.viTri" />
-                    </ng-template>
+                    </ng-container>
+                    <ng-container *ngIf="isCreating">
+                      <input type="text" [(ngModel)]="congtrinh.viTri" />
+                    </ng-container>
                   </td>
                   <td
                     onclick="td()"
@@ -145,12 +158,15 @@
                   <td>4</td>
                   <td style="text-align: left">QUY MÔ</td>
                   <td style="text-align: left">
-                    <ng-container *ngIf="!isEditing; else editMode4">
+                    <ng-container *ngIf="!isEditing && !isCreating">
                       {{ congtrinh.quyMo }}
                     </ng-container>
-                    <ng-template #editMode4>
+                    <ng-container *ngIf="isEditing">
                       <input type="text" [(ngModel)]="congtrinh.quyMo" />
-                    </ng-template>
+                    </ng-container>
+                    <ng-container *ngIf="isCreating">
+                      <input type="text" [(ngModel)]="congtrinh.quyMo" />
+                    </ng-container>
                   </td>
                   <td></td>
                 </tr>
@@ -158,12 +174,15 @@
                   <td>5</td>
                   <td style="text-align: left">THIẾT BỊ:</td>
                   <td style="text-align: left">
-                    <ng-container *ngIf="!isEditing; else editMode5">
+                    <ng-container *ngIf="!isEditing && !isCreating">
                       {{ congtrinh.thietBi }}
                     </ng-container>
-                    <ng-template #editMode5>
+                    <ng-container *ngIf="isEditing">
                       <input type="text" [(ngModel)]="congtrinh.thietBi" />
-                    </ng-template>
+                    </ng-container>
+                    <ng-container *ngIf="isCreating">
+                      <input type="text" [(ngModel)]="congtrinh.thietBi" />
+                    </ng-container>
                   </td>
                   <td></td>
                 </tr>
@@ -204,12 +223,15 @@
                   <td>7</td>
                   <td style="text-align: left">THÔNG TIN KHÁC</td>
                   <td style="text-align: left">
-                    <ng-container *ngIf="!isEditing; else editMode6">
+                    <ng-container *ngIf="!isEditing && !isCreating">
                       {{ congtrinh.thongTinKhac }}
                     </ng-container>
-                    <ng-template #editMode6>
+                    <ng-container *ngIf="isEditing">
                       <input type="text" [(ngModel)]="congtrinh.thongTinKhac" />
-                    </ng-template>
+                    </ng-container>
+                    <ng-container *ngIf="isCreating">
+                      <input type="text" [(ngModel)]="congtrinh.thongTinKhac" />
+                    </ng-container>
                   </td>
                   <td
                     onclick="th()"
@@ -217,6 +239,22 @@
                   >
                     File HS đính kèm
                   </td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td style="text-align: left">LOẠI CÔNG TRÌNH:</td>
+                  <td style="text-align: left">
+                    <ng-container *ngIf="!isEditing && !isCreating">
+                      {{ congtrinh.type }}
+                    </ng-container>
+                    <ng-container *ngIf="isCreating">
+                      <input type="text" [(ngModel)]="congtrinh.type" />
+                    </ng-container>
+                    <ng-container *ngIf="isEditing">
+                      <input type="text" [(ngModel)]="congtrinh.type" />
+                    </ng-container>
+                  </td>
+                  <td></td>
                 </tr>
               </tbody>
 
@@ -294,5 +332,135 @@
       </div>
     </div>
     <div class="side-2-his"></div>
+  </div>
+</div>
+
+<!-- ------------------------------------------------ Modal ------------------------------- -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form (ngSubmit)="createCongTrinh()">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            TẠO MỚI CÔNG TRÌNH
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <div class="input-group mb-3">
+              <select class="form-select" id="inputGroupSelect02">
+                <option selected>Choose...</option>
+                <option value="C">C</option>
+                <option value="K">K</option>
+                <option value="KT">KT</option>
+              </select>
+              <label class="input-group-text" for="inputGroupSelect02"
+                >Options</label
+              >
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Text input with dropdown button"
+              placeholder="Nhập số thứ tự công trình..."
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"
+              >TÊN CÔNG TRÌNH</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nhập tên công trình..."
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon2"
+              >VỊ TRÍ/ĐỊA ĐIỂM</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nhập vị trí công trình..."
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon3"
+              >QUY MÔ CÔNG TRÌNH</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nhập quy mô công trình..."
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon4">THIẾT BỊ</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nhập thiết bị..."
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon5"
+              >CÔNG TRÌNH LIÊN QUAN</span
+            >
+            <button type="button" class="btn btn-outline-primary">
+              Tạo công trình liên quan
+            </button>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon6"
+              >THÔNG TIN KHÁC</span
+            ><br />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nhập thông tin khác"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            /><br />
+          </div>
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02" />
+            <label class="input-group-text" for="inputGroupFile02"
+              >Upload</label
+            >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Đóng
+          </button>
+          <button type="submit" class="btn btn-primary">Lưu</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

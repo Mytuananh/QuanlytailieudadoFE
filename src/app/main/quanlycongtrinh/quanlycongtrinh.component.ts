@@ -1,5 +1,6 @@
 import { QuanlycongtrinhService } from './../../service/quanlycongtrinh.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quanlycongtrinh',
@@ -13,7 +14,7 @@ export class QuanlycongtrinhComponent implements OnInit {
   isEditing: boolean = false;
   isCreating: boolean = false;
 
-  constructor(private quanlicongtrinhService: QuanlycongtrinhService) { }
+  constructor(private quanlicongtrinhService: QuanlycongtrinhService, private router: Router) { }
 
   ngOnInit(): void {
     this.quanlicongtrinhService.initData().subscribe((response: any) => {
@@ -34,16 +35,35 @@ export class QuanlycongtrinhComponent implements OnInit {
     })
   }
 
-  create() {
-    this.isCreating = !this.isCreating;
-    if (this.isCreating == true) {
-      this.congtrinh = {};
-    } else {
-      this.quanlicongtrinhService.createCongTrinh(this.congtrinh).subscribe((response: any) => {
-        console.log(response);
-        this.congtrinh = response;
-      });
-    }
+  createCongTrinh() {
+    const body = {
+      name: (<HTMLInputElement>document.querySelector("input[placeholder='Nhập tên công trình...']")).value.trim(),
+      viTri: (<HTMLInputElement>document.querySelector("input[placeholder='Nhập vị trí công trình...']")).value.trim(),
+      type: (<HTMLSelectElement>document.querySelector(".form-select")).value,
+      quyMo: (<HTMLInputElement>document.querySelector("input[placeholder='Nhập quy mô công trình...']")).value.trim(),
+      thietBi: (<HTMLInputElement>document.querySelector("input[placeholder='Nhập thiết bị...']")).value.trim(),
+      congTrinhLienQuan: null, // Chưa lấy giá trị từ input
+      thongTinKhac: (<HTMLInputElement>document.querySelector("input[placeholder='Nhập thông tin khác']")).value.trim(),
+      soThuTu: (<HTMLInputElement>document.querySelector("input[placeholder='Nhập số thứ tự công trình...']")).value.trim(),
+      // Chưa lấy giá trị từ input file
+    };
+    console.log(body);
+
+    const formData = new FormData();
+    formData.append("name", body.name);
+    formData.append("viTri", body.viTri);
+    formData.append("type", body.type);
+    formData.append("quyMo", body.quyMo);
+    formData.append("thietBi", body.thietBi);
+    formData.append("congTrinhLienQuan", "");
+    formData.append("thongTinKhac", body.thongTinKhac);
+    formData.append("soThuTu", body.soThuTu);
+
+    this.quanlicongtrinhService.createCongTrinh(formData).subscribe((response: any) => {
+      console.log(response);
+      this.congtrinh = response;
+      // location.reload();
+    });
   }
 
   edit() {
