@@ -35,7 +35,23 @@ export class QuanlycongtrinhComponent implements OnInit {
     //   console.log(response);
     //   this.listCTAll = response;
     //   this.listCT = this.listCTAll;
-    //   this.changeCongTrinhTo(0);
+    //   this.congtrinh = this.listCT[0];
+    //   console.log('congtrinh', this.congtrinh);
+    //   this.quanlicongtrinhService.getListImage(this.congtrinh.maCT).subscribe((response: any) => {
+    //     this.congtrinh.images = response;
+    //   })
+  
+    //   this.quanlicongtrinhService.getListFile(this.congtrinh.maCT).subscribe((response: any) => {
+    //     this.congtrinh.files = response;
+    //     this.addScript();
+  
+    //   })
+  
+    //   this.quanlicongtrinhService.getLichSuCongTrinh(this.congtrinh.maCT).subscribe((response: any) => {
+    //     this.listLichSuCT = response;
+    //     this.modalLichSu = this.listLichSuCT[0];
+  
+    //   })
     // })
 
   }
@@ -47,23 +63,21 @@ export class QuanlycongtrinhComponent implements OnInit {
       this.congtrinh.images = response;
     })
 
-    this.quanlicongtrinhService.getListFile(this.congtrinh.maCT).subscribe((response: any) => {
-      this.congtrinh.files = response;
-      this.addScript();
+    this.quanlicongtrinhService.getLichSuCongTrinh(this.congtrinh.maCT).subscribe((response: any) => {
+      this.listLichSuCT = response;
+      console.log(68, 'listLichSu', this.listLichSuCT);
+      this.modalLichSu = this.listLichSuCT[0];
 
     })
 
-    this.quanlicongtrinhService.getLichSuCongTrinh(this.congtrinh.maCT).subscribe((response: any) => {
-      this.listLichSuCT = response;
-      this.modalLichSu = this.listLichSuCT[0];
-
+    this.quanlicongtrinhService.getListFile(this.congtrinh.maCT).subscribe((response: any) => {
+      this.congtrinh.files = response;
     })
   }
 
   searchCongTrinhName() {
     if (this.search.length > 0) {
-      this.listCT = this.listCT.filter((ct: any) => ct.name.includes(this.search));
-    console.log(this.listCT);
+      this.listCT = this.listCT.filter((ct: any) => ct.name.toLowerCase().includes(this.search.toLowerCase()));
     } else {
       this.listCT = this.listCTAll;
     }
@@ -114,7 +128,6 @@ export class QuanlycongtrinhComponent implements OnInit {
       congTrinhLienQuan: null, // Chưa lấy giá trị từ input
       thongTinKhac: (<HTMLInputElement>document.querySelector("#editCT input[placeholder='Nhập thông tin khác']")).value.trim(),
       maCT: (<HTMLInputElement>document.querySelector("#editMaCT")).value.trim(),
-      noiDungChinhSua: (<HTMLInputElement>document.querySelector("#noiDungChinhSua")).value.trim(),
       // Chưa lấy giá trị từ input file
     };
     console.log(body);
@@ -206,9 +219,9 @@ export class QuanlycongtrinhComponent implements OnInit {
     const e2 = document.getElementById("main-my-side-qlct")
     if (e2) e2.style.marginLeft = "30vh";
     this.quanlicongtrinhService.getData(type).subscribe((response: any) => {
-      console.log(response);
       this.listCTAll = response;
       this.listCT = this.listCTAll;
+      console.log('openSide', this.listCT);
       this.changeCongTrinhTo(0);
     })
   }
