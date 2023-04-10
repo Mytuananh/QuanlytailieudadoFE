@@ -47,4 +47,9 @@ export class QuanlycongtrinhService {
   getLichSuCongTrinh(maCT: string) {
     return this.http.get(`http://localhost:8080/api/cong-trinh/lich-su/${maCT}`)
   }
+
+  getAllCongTrinhCount() {
+    return this.http.get(`http://localhost:8080/api/cong-trinh/count`)
+
+  }
 }

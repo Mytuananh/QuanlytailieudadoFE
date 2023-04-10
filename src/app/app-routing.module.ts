@@ -1,3 +1,4 @@
+import { LoginComponent } from './auth/login/login.component';
 import { MainMenuComponent } from './main/main-menu/main-menu.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NgModule } from '@angular/core';
@@ -6,6 +7,8 @@ import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'login', component: LoginComponent },
+  
   {
     path: 'main-menu',
     component: MainComponent,

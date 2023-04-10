@@ -27,7 +27,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["src/assets/js/mainMenu.js", "src/assets/js/mainMenu2.js"]
           },
           "configurations": {
             "production": {

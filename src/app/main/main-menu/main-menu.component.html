@@ -1,127 +1,441 @@
-<div class="body-2"></div>
-<div class="body-3">
-  <div class="body-3-1"></div>
-  <div class="body-3-2">
-    <div class="body-3-2-1">
-      <div class="notice">
-        <div class="notice-0-1">BẢNG TIN</div>
-        <div class="notice-0-2"></div>
-      </div>
-      <div class="notice-1">
-        <div class="notice-1-1">
-          <img src="../../assets/anh2/anh-dep-1.jpg" alt="Error" />
-        </div>
-        <div class="notice-1-2">
-          <span><i class="fa fa-bullhorn" aria-hidden="true"></i></span>
-          <span>Thông báo:</span>
-          <span
-            ><marquee scrollamount="11s"
-              >Công ty tuần sau được nghỉ có lương x5 nhé!</marquee
-            ></span
+<div class="body-qlct">
+  <div class="side-bar-1">
+    <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+    <nav>
+      <ul>
+        <li>
+          <a href="#" class="dropdown-toggle"
+            ><i class="fas fa-industry"></i
+            ><span class="toggle-text">Quản lý công trình</span></a
           >
+          <ul class="dropdown-menu">
+            <li><a href="#">Cống dưới đê</a></li>
+            <li><a href="#">Trạm bơm</a></li>
+            <li><a href="#">Kênh cấp I</a></li>
+            <li><a href="#">Kênh tưới sau trạm bơm</a></li>
+            <li><a href="#">Công trình trên kênh</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle"
+            ><i class="fas fa-chart-line"></i
+            ><span class="toggle-text">Quản lý SXKD&ĐTPT</span></a
+          >
+          <ul class="dropdown-menu">
+            <li><a href="#">Dropdown item 1</a></li>
+            <li><a href="#">Dropdown item 2</a></li>
+            <li><a href="#">Dropdown item 3</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle"
+            ><i class="fas fa-users"></i
+            ><span class="toggle-text">Quản lý nhân sự</span></a
+          >
+          <ul class="dropdown-menu">
+            <li><a href="#" class="toggle-text">Dropdown item 1</a></li>
+            <li><a href="#" class="toggle-text">Dropdown item 2</a></li>
+            <li><a href="#" class="toggle-text">Dropdown item 3</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle"
+            ><i class="fas fa-money-check"></i
+            ><span class="toggle-text">Quản lý tài sản</span></a
+          >
+          <ul class="dropdown-menu">
+            <li><a href="#">Dropdown item 1</a></li>
+            <li><a href="#">Dropdown item 2</a></li>
+            <li><a href="#">Dropdown item 3</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="content">
+    <div id="main-my-side-qlct" class="body-qlct-2-2">
+      <div class="tabs">
+        <div
+          class="tab-item active"
+          (click)="
+            changeCongTrinhType('CONG', 'Cống dưới đê', countAll.congDuoiDe)
+          "
+        >
+          <div class="name-1">Cống dưới đê</div>
+          <div class="number-1">{{ countAll.congDuoiDe }}</div>
+        </div>
+        <div
+          class="tab-item"
+          (click)="
+            changeCongTrinhType('TRAM_BOM', 'Trạm bơm', countAll.tramBom)
+          "
+        >
+          <div class="name-1">Trạm bơm</div>
+          <div class="number-1">{{ countAll.tramBom }}</div>
+        </div>
+        <div
+          class="tab-item"
+          (click)="
+            changeCongTrinhType('KENH_DAT', 'Kênh cấp I', countAll.kenhCapI)
+          "
+        >
+          <div class="name-1">Kênh cấp I</div>
+          <div class="number-1">{{ countAll.kenhCapI }}</div>
+        </div>
+        <div
+          class="tab-item"
+          (click)="
+            changeCongTrinhType(
+              'KENH_TUOI',
+              'Kênh tưới sau TB',
+              countAll.kenhTuoiSauTB
+            )
+          "
+        >
+          <div class="name-1">Kênh tưới sau TB</div>
+          <div class="number-1">{{ countAll.kenhTuoiSauTB }}</div>
+        </div>
+        <div
+          class="tab-item"
+          (click)="
+            changeCongTrinhType(
+              'KENH_XAY',
+              'Công Trình trên kênh',
+              countAll.congTrinhTrenKenh
+            )
+          "
+        >
+          <div class="name-1">Công trình trên kênh</div>
+          <div class="number-1">{{ countAll.congTrinhTrenKenh }}</div>
         </div>
       </div>
-      <div class="notice-1">
-        <div class="notice-1-1">
-          <img src="../../assets/anh2/anh-thu-2.jpg" alt="Error" />
+      <div class="tab-content">
+        <div class="tab-pane active">
+          <div class="menu-tit">
+            <div class="menu-tit-1">
+              Cống dưới đê ({{ countAll.congDuoiDe }} công trình)
+            </div>
+            <div class="menu-tit-2">
+              <div class="m-t-1"><i class="fas fa-plus"></i>Thêm mới</div>
+              <div class="m-t-2">
+                <form action="#" method="get">
+                  <div class="search-box">
+                    <input
+                      type="text"
+                      class="search-txt"
+                      placeholder="Tìm kiếm..."
+                    />
+                    <button type="submit" class="search-btn">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="m-t-3"><i class="fas fa-ellipsis-v fa-2x"></i></div>
+            </div>
+          </div>
+          <div class="content-qlct">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Hạng mục</th>
+                  <th>Thông tin công trình</th>
+                  <th>Thông tin quản lý</th>
+                  <th>Hồ sơ công trình</th>
+                  <th>Hồ sơ vi phạm</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CO1</td>
+                  <td style="text-align: left">Cống Táo</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">05 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
+                </tr>
+                <tr>
+                  <td>C02</td>
+                  <td style="text-align: left">Cống hút Bát Trang</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                </tr>
+                <tr>
+                  <td>C03</td>
+                  <td style="text-align: left">Cống xả Bát Trang</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">01 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="notice-1-2">
-          <span><i class="fa fa-bullhorn" aria-hidden="true"></i></span>
-          <span>Thông báo:</span>
-          <span
-            ><marquee scrollamount="11s"
-              >Bộ sưu tập 51 hình nền và hình nền Ultra HD PC hàng đầu có sẵn để
-              tải xuống miễn phí. Chúng tôi hy vọng bạn thích bộ sưu tập hình
-              ảnh HD ngày càng tăng của chúng tôi để sử dụng làm hình nền hoặc
-              màn hình chính cho điện thoại thông minh hoặc máy tính của bạn.
-              Vui lòng liên hệ chúng tôi nếu bạn muốn xuất bản một PC Ultra HD
-              hình nền trên trang web của chúng tôi.</marquee
-            ></span
-          >
+        <div class="tab-pane">
+          <div class="menu-tit">
+            <div class="menu-tit-1">
+              Trạm bơm ({{ countAll.tramBom }} công trình)
+            </div>
+            <div class="menu-tit-2">
+              <div class="m-t-1"><i class="fas fa-plus"></i>Thêm mới</div>
+              <div class="m-t-2">
+                <form action="#" method="get">
+                  <div class="search-box">
+                    <input
+                      type="text"
+                      class="search-txt"
+                      placeholder="Tìm kiếm..."
+                    />
+                    <button type="submit" class="search-btn">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="m-t-3"><i class="fas fa-ellipsis-v fa-2x"></i></div>
+            </div>
+          </div>
+          <div class="content-qlct">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Hạng mục</th>
+                  <th>Thông tin công trình</th>
+                  <th>Thông tin quản lý</th>
+                  <th>Hồ sơ công trình</th>
+                  <th>Hồ sơ vi phạm</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CO1</td>
+                  <td style="text-align: left">Cống Táo</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">05 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
+                </tr>
+                <tr>
+                  <td>C02</td>
+                  <td style="text-align: left">Cống hút Bát Trang</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                </tr>
+                <tr>
+                  <td>C03</td>
+                  <td style="text-align: left">Cống xả Bát Trang</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">01 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <div class="menu-tit">
+            <div class="menu-tit-1">
+              Kênh cấp I ({{ countAll.kenhCapI }} công trình)
+            </div>
+            <div class="menu-tit-2">
+              <div class="m-t-1"><i class="fas fa-plus"></i>Thêm mới</div>
+              <div class="m-t-2">
+                <form action="#" method="get">
+                  <div class="search-box">
+                    <input
+                      type="text"
+                      class="search-txt"
+                      placeholder="Tìm kiếm..."
+                    />
+                    <button type="submit" class="search-btn">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="m-t-3"><i class="fas fa-ellipsis-v fa-2x"></i></div>
+            </div>
+          </div>
+          <div class="content-qlct">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Hạng mục</th>
+                  <th>Thông tin công trình</th>
+                  <th>Thông tin quản lý</th>
+                  <th>Hồ sơ công trình</th>
+                  <th>Hồ sơ vi phạm</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CO1</td>
+                  <td style="text-align: left">Cống Táo</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">05 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
+                </tr>
+                <tr>
+                  <td>C02</td>
+                  <td style="text-align: left">Cống hút Bát Trang</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                </tr>
+                <tr>
+                  <td>C03</td>
+                  <td style="text-align: left">Cống xả Bát Trang</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">01 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <div class="menu-tit">
+            <div class="menu-tit-1">
+              Kênh tưới sau TB ({{ countAll.kenhTuoiSauTB }} công trình)
+            </div>
+            <div class="menu-tit-2">
+              <div class="m-t-1"><i class="fas fa-plus"></i>Thêm mới</div>
+              <div class="m-t-2">
+                <form action="#" method="get">
+                  <div class="search-box">
+                    <input
+                      type="text"
+                      class="search-txt"
+                      placeholder="Tìm kiếm..."
+                    />
+                    <button type="submit" class="search-btn">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="m-t-3"><i class="fas fa-ellipsis-v fa-2x"></i></div>
+            </div>
+          </div>
+          <div class="content-qlct">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Hạng mục</th>
+                  <th>Thông tin công trình</th>
+                  <th>Thông tin quản lý</th>
+                  <th>Hồ sơ công trình</th>
+                  <th>Hồ sơ vi phạm</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CO1</td>
+                  <td style="text-align: left">Cống Táo</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">05 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
+                </tr>
+                <tr>
+                  <td>C02</td>
+                  <td style="text-align: left">Cống hút Bát Trang</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                </tr>
+                <tr>
+                  <td>C03</td>
+                  <td style="text-align: left">Cống xả Bát Trang</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">01 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <div class="menu-tit">
+            <div class="menu-tit-1">
+              Công trình trên kênh ({{ countAll.congTrinhTrenKenh }} công trình)
+            </div>
+            <div class="menu-tit-2">
+              <div class="m-t-1"><i class="fas fa-plus"></i>Thêm mới</div>
+              <div class="m-t-2">
+                <form action="#" method="get">
+                  <div class="search-box">
+                    <input
+                      type="text"
+                      class="search-txt"
+                      placeholder="Tìm kiếm..."
+                    />
+                    <button type="submit" class="search-btn">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="m-t-3"><i class="fas fa-ellipsis-v fa-2x"></i></div>
+            </div>
+          </div>
+          <div class="content-qlct">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Hạng mục</th>
+                  <th>Thông tin công trình</th>
+                  <th>Thông tin quản lý</th>
+                  <th>Hồ sơ công trình</th>
+                  <th>Hồ sơ vi phạm</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CO1</td>
+                  <td style="text-align: left">Cống Táo</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">05 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
+                </tr>
+                <tr>
+                  <td>C02</td>
+                  <td style="text-align: left">Cống hút Bát Trang</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                </tr>
+                <tr>
+                  <td>C03</td>
+                  <td style="text-align: left">Cống xả Bát Trang</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
+                  <td onclick="Hp()" style="cursor: pointer">01 hồ sơ</td>
+                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="body-3-3">
-    <div class="body-3-3-1">
-      <div
-        id="carouselExampleSlidesOnly"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="../../assets/anh2/carsoule-1.jpg"
-              class="d-block w-100"
-              alt="Error"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="../../assets/anh2/carsoule-2.jpg"
-              class="d-block w-100"
-              alt="Error"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="../../assets/anh2/carsoule-3.jpg"
-              class="d-block w-100"
-              alt="Error"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="body-3-3-2">
-      <div class="body-3-0">
-        <div class="body-title-3-3-2-1">
-          <div ontouchstart="">
-            <div class="button" style="cursor: pointer" (click)="navigateToQuanlycongtrinh()">
-              <a>QUẢN LÝ CÔNG TRÌNH</a>
-            </div>
-          </div>
-        </div>
-        <div class="body-title-3-3-2-2">
-          <div ontouchstart="">
-            <div class="button" style="cursor: pointer">
-              <a>QUẢN LÝ NHÂN SỰ</a>
-            </div>
-          </div>
-        </div>
-        <div class="body-title-3-3-2-3">
-          <div ontouchstart="">
-            <div class="button" style="cursor: pointer">
-              <a>QUẢN LÝ TÀI SẢN</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="body-3-0-1">
-        <div class="body-title-3-3-2-4">
-          <div ontouchstart="">
-            <div class="button" style="cursor: pointer">
-              <a>QUẢN LÝ HỒ SƠ SXKD</a>
-            </div>
-          </div>
-        </div>
-        <div class="body-title-3-3-2-5">
-          <div ontouchstart="">
-            <div class="button" style="cursor: pointer">
-              <a>BÁO CÁO VÀ LƯU TRỮ</a>
-            </div>
-          </div>
-        </div>
-        <div class="body-title-3-3-2-6">
-          <div ontouchstart="">
-            <div class="button" style="cursor: pointer">
-              <a>QUẢN LÝ HỒ SƠ KHÁC</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="body-3-4"></div>
 </div>

@@ -14,4 +14,9 @@ export class HomePageComponent {
   goToPage2() {
     this.router.navigate(['/main-menu']);
   }
+
+  toLoginPage() {
+    this.router.navigate(['/login']);
+
+  }
 }

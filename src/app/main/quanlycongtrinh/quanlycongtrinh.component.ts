@@ -284,4 +284,8 @@ export class QuanlycongtrinhComponent implements OnInit {
       });
     });
   }
+
+  showMap() {
+    window.open(`https://www.google.com/maps/d/u/0/edit?mid=1SdmX3rQ3LMboAsNfIiStgkkPIm7B01k&ll=${this.congtrinh.lat}%2C${this.congtrinh.lon}&z=17`);
+  }
 }

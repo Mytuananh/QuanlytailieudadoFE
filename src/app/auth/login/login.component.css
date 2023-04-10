@@ -1,0 +1,198 @@
+.nav-log-1{
+    width: 100%;
+    height: 10%;
+    position: relative;
+    display: flex;
+}
+.nav-log-1 img{
+    width: 100%;
+    height: 100%;
+}
+.nav-log-a{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+}
+.logo-nav{
+    width: 10%;
+    height: 100%;
+    margin-left: 10%;
+}
+.logo-nav img{
+    width: 100%;
+    height: 100%;
+}
+.title-nav{
+    width: 30%;
+    height: 100%;
+    font-family: 'Arial', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    color: #003192;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.nav-log-b{
+     width: 50%;
+     height: 100%;
+     position: absolute;
+     display: flex;
+     margin-left: 50%;
+ }
+.title-b-nav-1{
+    margin-left: 45%;
+    width: 15%;
+    height: 100%;
+    text-align: right;
+    font-family: Arial, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 18px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.title-b-nav-2{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.title-b-nav-3{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.nav-log-2{
+    width: 100%;
+    height: 792px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login{
+    width: 40%;
+    height: 70%;
+    background: #E9E9E9;
+    border-radius: 10px;
+}
+.log-1{
+    width: 100%;
+    height: 20%;
+    font-family: 'Arial', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 35px;
+    letter-spacing: 0.02em;
+    color: #3600D0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.log-2{
+    width: 100%;
+    height: 20%;
+}
+.log-3{
+    width: 100%;
+    height: 20%;
+}
+.log-4{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.log-5{
+    width: 100%;
+    height: 15%;
+}
+label {
+    font-family: 'Arial', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #828282;
+    display: block;
+    margin-bottom: 2%;
+    margin-top: 3%;
+    margin-left: 10%;
+
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border: none;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    width: 80%;
+    height: 45%;
+    background: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-left: 10%;
+    font-size: 18px;
+}
+input[type="submit"]{
+    background: #8348FF;
+    border: 1px solid #C8AEFF;
+    border-radius: 30px;
+    width: 30%;
+    height: 55%;
+    font-family: 'Arial', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+span.psw {
+    float: right;
+    font-family: 'Arial', serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 23px;
+    padding-bottom: 20px;
+    margin-right: 50px;
+}
+.nav-log-3{
+    width: 100%;
+    z-index: 1;
+    height: 90px;
+}
+.nav-log-3 img{
+    width: 100%;
+    height: 100%;
+
+}
