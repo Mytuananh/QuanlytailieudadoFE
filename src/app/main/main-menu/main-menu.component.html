@@ -8,12 +8,63 @@
             ><i class="fas fa-industry"></i
             ><span class="toggle-text">Quản lý công trình</span></a
           >
-          <ul class="dropdown-menu">
-            <li><a href="#">Cống dưới đê</a></li>
-            <li><a href="#">Trạm bơm</a></li>
-            <li><a href="#">Kênh cấp I</a></li>
-            <li><a href="#">Kênh tưới sau trạm bơm</a></li>
-            <li><a href="#">Công trình trên kênh</a></li>
+          <ul class="dropdown-menu" id="navbar-tab-panes">
+            <li>
+              <a
+                (click)="
+                  changeCongTrinhType(
+                    'CONG',
+                    'Cống dưới đê',
+                    countAll.congDuoiDe
+                  )
+                "
+                >Cống dưới đê</a
+              >
+            </li>
+            <li>
+              <a
+                (click)="
+                  changeCongTrinhType('TRAM_BOM', 'Trạm bơm', countAll.tramBom)
+                "
+                >Trạm bơm</a
+              >
+            </li>
+            <li>
+              <a
+                (click)="
+                  changeCongTrinhType(
+                    'KENH_DAT',
+                    'Kênh cấp I',
+                    countAll.kenhCapI
+                  )
+                "
+                >Kênh cấp I</a
+              >
+            </li>
+            <li>
+              <a
+                (click)="
+                  changeCongTrinhType(
+                    'KENH_TUOI',
+                    'Kênh tưới sau TB',
+                    countAll.kenhTuoiSauTB
+                  )
+                "
+                >Kênh tưới sau trạm bơm</a
+              >
+            </li>
+            <li>
+              <a
+                (click)="
+                  changeCongTrinhType(
+                    'KENH_XAY',
+                    'Công Trình trên kênh',
+                    countAll.congTrinhTrenKenh
+                  )
+                "
+                >Công trình trên kênh</a
+              >
+            </li>
           </ul>
         </li>
         <li>
@@ -112,18 +163,225 @@
       <div class="tab-content">
         <div class="tab-pane active">
           <div class="menu-tit">
-            <div class="menu-tit-1">
-              Cống dưới đê ({{ countAll.congDuoiDe }} công trình)
-            </div>
+            <div class="menu-tit-1">{{ congTrinhSelectedMessage }}</div>
             <div class="menu-tit-2">
-              <div class="m-t-1"><i class="fas fa-plus"></i>Thêm mới</div>
+              <div class="m-t-1" id="addNewBtn">
+                <i class="fas fa-plus"></i>Thêm mới
+              </div>
+              <div id="functionList" class="function-list">
+                <div class="function-list-item" data-function="thongTinChung">
+                  Thông tin chung
+                </div>
+                <div class="function-list-item" data-function="thongTinQuanLy">
+                  Thông tin quản lý
+                </div>
+                <div class="function-list-item" data-function="hoSoCongTrinh">
+                  Hồ sơ công trình
+                </div>
+                <div class="function-list-item" data-function="hoSoViPham">
+                  Hồ sơ vi phạm
+                </div>
+              </div>
+              <!-- The Modal Thong Tin Chung -->
+              <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Thông tin công trình</h2>
+                  <form (ngSubmit)="createCongTrinh()" id="createCT">
+                    <div class="form-group">
+                      <label for="project-code">Mã công trình:</label>
+                      <select id="project-code" name="project-code">
+                        <option value="K">K</option>
+                        <option value="TB">TB</option>
+                        <option value="KT">KT</option>
+                        <option value="C">C</option>
+                        <option value="CTTK">CTTK</option>
+                      </select>
+                      <input
+                        type="text"
+                        id="project-code-num"
+                        name="project-code-num"
+                        placeholder="Số thứ tự"
+                      />
+                      <span
+                        class="error-message"
+                        id="project-code-error"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="project-name">Tên công trình:</label>
+                      <input
+                        type="text"
+                        id="project-name"
+                        name="project-name"
+                      />
+                      <span
+                        class="error-message"
+                        id="project-name-error"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="project-location">Vị trí, địa điểm:</label>
+                      <input
+                        type="text"
+                        id="project-location-name"
+                        name="project-location-name"
+                        placeholder="Tên địa điểm"
+                      />
+                      <input
+                        type="text"
+                        id="project-location-x"
+                        name="project-location-x"
+                        placeholder="Tọa độ X"
+                      />
+                      <input
+                        type="text"
+                        id="project-location-y"
+                        name="project-location-y"
+                        placeholder="Tọa độ Y"
+                      />
+                      <span
+                        class="error-message"
+                        id="project-location-error"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="project-scale">Quy mô:</label>
+                      <input
+                        type="text"
+                        id="project-scale"
+                        name="project-scale"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="project-equipment">Thiết bị:</label>
+                      <input
+                        type="text"
+                        id="project-equipment"
+                        name="project-equipment"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="related-projects"
+                        >Công trình liên quan:</label
+                      >
+                      <select id="related-projects" name="related-projects">
+                        <option
+                          *ngFor="let ct of listCTLienQuan; let i = index"
+                          [value]="ct.maCT"
+                        >
+                          {{ ct.name }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="other-info">Thông tin khác:</label>
+                      <input type="text" id="other-info" name="other-info" />
+                      <input
+                        type="file"
+                        id="file-upload"
+                        name="file-upload"
+                        accept=".pdf, .docs, .docx"
+                        multiple
+                      />
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" id="saveBtn">Lưu thông tin</button>
+                      <button type="button" id="cancelBtn">Hủy bỏ</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- The Modal Thong Tin Quan Ly -->
+              <div id="myModal1" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close1">&times;</span>
+                  <h2>Thông tin công trình</h2>
+                  <form (ngSubmit)="updateCongTrinh()" id="updateCT">
+                    <div class="form-group">
+                      <label for="project-name-did"
+                        >Chọn công trình quản lý:</label
+                      >
+                      <select
+                        id="project-name-did"
+                        name="project-name-did"
+                        [(ngModel)]="selectedMaCT"
+                        (change)="onCTSelected(selectedMaCT)"
+                      >
+                        <option
+                          *ngFor="let ct of listCTLienQuan; let i = index"
+                          [value]="ct.maCT"
+                        >
+                          {{ ct.name }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="project-type">Quản lý tài sản:</label>
+                      <select
+                        id="project-type"
+                        name="project-type"
+                        [(ngModel)]="selectedForUpdateCT.quanLyTaiSanType"
+                      >
+                        <option value="SO_NNPTNT">Sở NNPTNT</option>
+                        <option value="CONG_TY_DA_DO">Công Ty</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="project-status">Trạng thái công trình:</label>
+                      <select
+                        id="project-status"
+                        name="project-status"
+                        [(ngModel)]="selectedForUpdateCT.trangThaiCongTrinh"
+                      >
+                        <option value="DA_CAM_MOC">Đã cắm mốc</option>
+                        <option value="CHUA_CAM_MOC">chưa cắm mốc</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="project-encroachment-violation"
+                        >Vi phạm lấn chiếm:</label
+                      >
+                      <input
+                        type="text"
+                        id="project-encroachment-violation"
+                        name="project-encroachment-violation"
+                        readonly
+                        value="Đang cập nhật"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="project-history">Lịch sử công trình:</label>
+                      <input
+                        type="text"
+                        id="project-history"
+                        name="project-history"
+                        [(ngModel)]="selectedForUpdateCT.lichSuCT"
+                      />
+                      <span
+                        class="error-message"
+                        id="project-history-error"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" id="saveBtn1">Lưu thông tin</button>
+                      <button type="button" id="cancelBtn1">Hủy bỏ</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
               <div class="m-t-2">
-                <form action="#" method="get">
+                <form method="get">
                   <div class="search-box">
                     <input
                       type="text"
                       class="search-txt"
+                      name="search"
                       placeholder="Tìm kiếm..."
+                      [(ngModel)]="search"
+                      (input)="searchCongTrinhName()"
                     />
                     <button type="submit" class="search-btn">
                       <i class="fas fa-search"></i>
@@ -147,289 +405,29 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>CO1</td>
-                  <td style="text-align: left">Cống Táo</td>
+                <tr
+                  *ngFor="let ct of listCT; let i = index"
+                  class="{{ ct.name }}"
+                >
+                  <td>{{ ct.maCT }}</td>
+                  <td style="text-align: left">{{ ct.name }}</td>
+                  <td
+                    (click)="toCongTrinhInfo(ct.maCT)"
+                    style="cursor: pointer"
+                  >
+                    Xem
+                  </td>
                   <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">05 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
-                </tr>
-                <tr>
-                  <td>C02</td>
-                  <td style="text-align: left">Cống hút Bát Trang</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">-</td>
-                </tr>
-                <tr>
-                  <td>C03</td>
-                  <td style="text-align: left">Cống xả Bát Trang</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">01 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">-</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="tab-pane">
-          <div class="menu-tit">
-            <div class="menu-tit-1">
-              Trạm bơm ({{ countAll.tramBom }} công trình)
-            </div>
-            <div class="menu-tit-2">
-              <div class="m-t-1"><i class="fas fa-plus"></i>Thêm mới</div>
-              <div class="m-t-2">
-                <form action="#" method="get">
-                  <div class="search-box">
-                    <input
-                      type="text"
-                      class="search-txt"
-                      placeholder="Tìm kiếm..."
-                    />
-                    <button type="submit" class="search-btn">
-                      <i class="fas fa-search"></i>
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div class="m-t-3"><i class="fas fa-ellipsis-v fa-2x"></i></div>
-            </div>
-          </div>
-          <div class="content-qlct">
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Hạng mục</th>
-                  <th>Thông tin công trình</th>
-                  <th>Thông tin quản lý</th>
-                  <th>Hồ sơ công trình</th>
-                  <th>Hồ sơ vi phạm</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>CO1</td>
-                  <td style="text-align: left">Cống Táo</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">05 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
-                </tr>
-                <tr>
-                  <td>C02</td>
-                  <td style="text-align: left">Cống hút Bát Trang</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">-</td>
-                </tr>
-                <tr>
-                  <td>C03</td>
-                  <td style="text-align: left">Cống xả Bát Trang</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">01 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">-</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="tab-pane">
-          <div class="menu-tit">
-            <div class="menu-tit-1">
-              Kênh cấp I ({{ countAll.kenhCapI }} công trình)
-            </div>
-            <div class="menu-tit-2">
-              <div class="m-t-1"><i class="fas fa-plus"></i>Thêm mới</div>
-              <div class="m-t-2">
-                <form action="#" method="get">
-                  <div class="search-box">
-                    <input
-                      type="text"
-                      class="search-txt"
-                      placeholder="Tìm kiếm..."
-                    />
-                    <button type="submit" class="search-btn">
-                      <i class="fas fa-search"></i>
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div class="m-t-3"><i class="fas fa-ellipsis-v fa-2x"></i></div>
-            </div>
-          </div>
-          <div class="content-qlct">
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Hạng mục</th>
-                  <th>Thông tin công trình</th>
-                  <th>Thông tin quản lý</th>
-                  <th>Hồ sơ công trình</th>
-                  <th>Hồ sơ vi phạm</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>CO1</td>
-                  <td style="text-align: left">Cống Táo</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">05 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
-                </tr>
-                <tr>
-                  <td>C02</td>
-                  <td style="text-align: left">Cống hút Bát Trang</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">-</td>
-                </tr>
-                <tr>
-                  <td>C03</td>
-                  <td style="text-align: left">Cống xả Bát Trang</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">01 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">-</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="tab-pane">
-          <div class="menu-tit">
-            <div class="menu-tit-1">
-              Kênh tưới sau TB ({{ countAll.kenhTuoiSauTB }} công trình)
-            </div>
-            <div class="menu-tit-2">
-              <div class="m-t-1"><i class="fas fa-plus"></i>Thêm mới</div>
-              <div class="m-t-2">
-                <form action="#" method="get">
-                  <div class="search-box">
-                    <input
-                      type="text"
-                      class="search-txt"
-                      placeholder="Tìm kiếm..."
-                    />
-                    <button type="submit" class="search-btn">
-                      <i class="fas fa-search"></i>
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div class="m-t-3"><i class="fas fa-ellipsis-v fa-2x"></i></div>
-            </div>
-          </div>
-          <div class="content-qlct">
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Hạng mục</th>
-                  <th>Thông tin công trình</th>
-                  <th>Thông tin quản lý</th>
-                  <th>Hồ sơ công trình</th>
-                  <th>Hồ sơ vi phạm</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>CO1</td>
-                  <td style="text-align: left">Cống Táo</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">05 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
-                </tr>
-                <tr>
-                  <td>C02</td>
-                  <td style="text-align: left">Cống hút Bát Trang</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">-</td>
-                </tr>
-                <tr>
-                  <td>C03</td>
-                  <td style="text-align: left">Cống xả Bát Trang</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">01 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">-</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="tab-pane">
-          <div class="menu-tit">
-            <div class="menu-tit-1">
-              Công trình trên kênh ({{ countAll.congTrinhTrenKenh }} công trình)
-            </div>
-            <div class="menu-tit-2">
-              <div class="m-t-1"><i class="fas fa-plus"></i>Thêm mới</div>
-              <div class="m-t-2">
-                <form action="#" method="get">
-                  <div class="search-box">
-                    <input
-                      type="text"
-                      class="search-txt"
-                      placeholder="Tìm kiếm..."
-                    />
-                    <button type="submit" class="search-btn">
-                      <i class="fas fa-search"></i>
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div class="m-t-3"><i class="fas fa-ellipsis-v fa-2x"></i></div>
-            </div>
-          </div>
-          <div class="content-qlct">
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Hạng mục</th>
-                  <th>Thông tin công trình</th>
-                  <th>Thông tin quản lý</th>
-                  <th>Hồ sơ công trình</th>
-                  <th>Hồ sơ vi phạm</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>CO1</td>
-                  <td style="text-align: left">Cống Táo</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">05 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
-                </tr>
-                <tr>
-                  <td>C02</td>
-                  <td style="text-align: left">Cống hút Bát Trang</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">02 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">-</td>
-                </tr>
-                <tr>
-                  <td>C03</td>
-                  <td style="text-align: left">Cống xả Bát Trang</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">01 hồ sơ</td>
-                  <td onclick="Hp()" style="cursor: pointer">-</td>
+                  <td onclick="Hp()" style="cursor: pointer">
+                    {{ ct.hoSoCTCount > 0 ? ct.hoSoCTCount + " hồ sơ" : "-" }}
+                  </td>
+                  <td onclick="Hp()" style="cursor: pointer">
+                    {{
+                      ct.hoSoViPhamCount > 0
+                        ? ct.hoSoViPhamCount + " hồ sơ"
+                        : "-"
+                    }}
+                  </td>
                 </tr>
               </tbody>
             </table>

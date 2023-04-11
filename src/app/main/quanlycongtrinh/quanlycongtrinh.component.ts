@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class QuanlycongtrinhComponent implements OnInit {
   listCTAll: any;
   listCT: any;
+  listCTLienQuan: any;
   congtrinh: any = null;
   listLichSuCT: any;
   modalLichSu: any;
@@ -21,6 +22,7 @@ export class QuanlycongtrinhComponent implements OnInit {
 
   selectedFiles?: FileList;
   selectedImages?: FileList
+
 
   search: string = '';
 

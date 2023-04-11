@@ -27,7 +27,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["src/assets/js/mainMenu.js", "src/assets/js/mainMenu2.js"]
+            "scripts": ["src/assets/js/main-menu.js", "src/assets/js/congtrinhinfo.js"]
           },
           "configurations": {
             "production": {
