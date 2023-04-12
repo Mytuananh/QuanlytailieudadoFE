@@ -32,4 +32,8 @@ export class CongtrinhinfoComponent implements OnInit {
   toMainMenu() {
     this.router.navigate([`main-menu`])
   }
+
+  showMap() {
+    window.open(`https://www.google.com/maps/d/u/0/edit?mid=1SdmX3rQ3LMboAsNfIiStgkkPIm7B01k&ll=${this.congTrinh.latitude}%2C${this.congTrinh.longitude}&z=17`);
+  }
 }
