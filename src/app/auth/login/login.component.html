@@ -25,6 +25,7 @@
         id="username"
         name="username"
         placeholder="username_123@email.com"
+        [(ngModel)]="email"
       />
     </div>
     <div class="log-3">
@@ -34,10 +35,11 @@
         id="password"
         name="password"
         placeholder="Nhập mật khẩu..."
+        [(ngModel)]="password"
       />
     </div>
     <div class="log-4">
-      <input type="submit" value="Đăng nhập" (click)="toMainMenu()" />
+      <input type="submit" value="Đăng nhập" (click)="login()" />
     </div>
     <div class="log-5">
       <label>

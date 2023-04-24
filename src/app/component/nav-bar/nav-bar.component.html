@@ -1,4 +1,4 @@
-<div class="nav-bar" mainMenuRef>
+<div class="nav-bar">
   <div class="logo-qlct">
     <div class="img-logo">
       <img
@@ -10,7 +10,7 @@
   </div>
   <div class="title-qlct">
     <div class="title-qlct-1">
-      <p style="cursor: pointer" (click)="toMainMenu()">Quản lý doanh nghiệp</p>
+      <p style="cursor: pointer">Quản lý doanh nghiệp</p>
     </div>
     <div class="title-qlct-2">
       <p style="cursor: pointer">Thông báo nội bộ</p>
@@ -20,12 +20,586 @@
     </div>
   </div>
   <div class="ava-qlct">
+    <div class="map">
+      <div class="map-icon">
+        <div class="border-map">
+          <a href="https://bom.so/xMSl68"
+            ><i
+              class="fas fa-map-marked-alt"
+              style="color: #4b5580"
+              title="Bản đồ"
+            ></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <div class="mess">
+      <div class="messenger-icon">
+        <div class="border-mess">
+          <i
+            class="fab fa-facebook-messenger"
+            style="color: #4b5580"
+            title="Tin nhắn"
+          ></i>
+          <span class="notification-badge"></span>
+        </div>
+      </div>
+    </div>
+    <div class="content-container hidden" id="message-list">
+      <h2>CHAT</h2>
+      <input type="text" class="search-input" placeholder="Tìm kiếm..." />
+      <!-- Ví dụ cho tin nhắn chưa đọc -->
+      <div
+        class="message-item unread"
+        data-username="Khánh Trắng"
+        data-avatar="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+      >
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+            alt="Avatar"
+            class="avatar"
+          />
+          <div class="online-status"></div>
+        </div>
+        <div class="message-content">
+          <div class="sender-name">Khánh Trắng</div>
+          <div class="message-text">Bạn: alo</div>
+        </div>
+      </div>
+      <div
+        class="message-item unread"
+        data-username="Mai Phương"
+        data-avatar="assets/anh3/anh-nen-mau-trang-001.jpg"
+      >
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+          <div class="online-status"></div>
+        </div>
+        <div class="message-content">
+          <div class="sender-name">Mai Phương</div>
+          <div class="message-text">Mai e cho a 50 củ nhé</div>
+        </div>
+      </div>
+      <div
+        class="message-item unread"
+        data-username="Toán Vũ"
+        data-avatar="assets/anh3/anh-nen-mau-trang-001.jpg"
+      >
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+        </div>
+        <div class="message-content">
+          <div class="sender-name">Toán Vũ</div>
+          <div class="message-text">Bạn: E gửi rồi c nhé</div>
+        </div>
+      </div>
+      <div
+        class="message-item unread"
+        data-username="Phương Bùi"
+        data-avatar="assets/anh3/anh-nen-mau-trang-001.jpg"
+      >
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+          <div class="online-status"></div>
+        </div>
+        <div class="message-content">
+          <div class="sender-name">Phương Bùi</div>
+          <div class="message-text">Làm hộ c chứ</div>
+        </div>
+      </div>
+      <div
+        class="message-item"
+        data-username="Tào Tuyết Cần"
+        data-avatar="assets/anh3/anh-nen-mau-trang-001.jpg"
+      >
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+          <div class="online-status"></div>
+        </div>
+        <div class="message-content">
+          <div class="sender-name">Tào Tuyết Cần</div>
+          <div class="message-text">Hồng Lâu Mộng không</div>
+        </div>
+      </div>
+      <div
+        class="message-item"
+        data-username="Ngô Thừa Ân"
+        data-avatar="assets/anh3/anh-nen-mau-trang-001.jpg"
+      >
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+          <div class="online-status"></div>
+        </div>
+        <div class="message-content">
+          <div class="sender-name">Ngô Thừa Ân</div>
+          <div class="message-text">Tây Du Kí không chú</div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-container">
+      <div class="chat-box chat-window" id="chat-box" style="display: none">
+        <div class="chat-header">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+          <div class="sender-name">Tên người dùng</div>
+          <div class="online-status"></div>
+          <button class="minimize-button">&#8722;</button>
+          <button class="close-chat">&times;</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+          <!-- Trong phần chat-body -->
+          <div class="chat-message user-message">
+            <div class="message-text">
+              Xin chào, tôi có thể giúp gì cho bạn?
+            </div>
+            <div class="message-time">9:00 AM</div>
+          </div>
+          <div class="chat-message my-message">
+            <div class="message-text">
+              Cảm ơn, tôi muốn hỏi về sản phẩm của bạn.
+            </div>
+            <div class="message-time">9:01 AM</div>
+          </div>
+        </div>
+        <div class="chat-footer">
+          <div class="file-upload">
+            <input type="file" id="file-input" hidden />
+            <label for="file-input">
+              <i class="fas fa-paperclip"></i>
+            </label>
+          </div>
+          <div class="image-upload">
+            <input type="file" id="image-input" accept="image/*" hidden />
+            <label for="image-input">
+              <i class="fas fa-image"></i>
+            </label>
+          </div>
+          <input
+            type="text"
+            class="chat-input"
+            placeholder="Nhập tin nhắn..."
+            onkeypress="handleEnter(event)"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="notification">
+      <div class="messenger-icon">
+        <div class="border-notification">
+          <i class="fas fa-bell" style="color: #4b5580" title="Thông báo"></i>
+          <span class="notification-badge"></span>
+        </div>
+      </div>
+    </div>
+    <div class="content-container hidden" id="notification-list">
+      <h2>Thông báo</h2>
+      <div class="notification-item unread">
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+        </div>
+        <div class="notification-content">
+          <div class="notification-text">
+            <strong>Toán Vũ</strong> đã bình luận về bài viết của bạn.
+          </div>
+          <div class="notification-time">15 phút trước</div>
+        </div>
+      </div>
+      <div class="notification-item unread">
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+        </div>
+        <div class="notification-content">
+          <div class="notification-text">
+            <strong>Toán Vũ</strong> đã thả haha về bài viết của bạn.
+          </div>
+          <div class="notification-time">16 phút trước</div>
+        </div>
+      </div>
+      <div class="notification-item">
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+        </div>
+        <div class="notification-content">
+          <div class="notification-text">
+            <strong>Toán Vũ</strong> đã chọc về bài viết của bạn.
+          </div>
+          <div class="notification-time">15 phút trước</div>
+        </div>
+      </div>
+      <div class="notification-item">
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+        </div>
+        <div class="notification-content">
+          <div class="notification-text">
+            <strong>Toán Vũ</strong> đã bình luận về bài viết của bạn.
+          </div>
+          <div class="notification-time">15 phút trước</div>
+        </div>
+      </div>
+      <div class="notification-item">
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+        </div>
+        <div class="notification-content">
+          <div class="notification-text">
+            <strong>Toán Vũ</strong> đã bình luận về bài viết của bạn.
+          </div>
+          <div class="notification-time">15 phút trước</div>
+        </div>
+      </div>
+      <div class="notification-item">
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+        </div>
+        <div class="notification-content">
+          <div class="notification-text">
+            <strong>Toán Vũ</strong> đã bình luận về bài viết của bạn.
+          </div>
+          <div class="notification-time">15 phút trước</div>
+        </div>
+      </div>
+      <div class="notification-item">
+        <div class="avatar-wrapper">
+          <img
+            src="assets/anh3/anh-nen-mau-trang-001.jpg"
+            alt="Avatar"
+            class="avatar"
+          />
+        </div>
+        <div class="notification-content">
+          <div class="notification-text">
+            <strong>Toán Vũ</strong> đã bình luận về bài viết của bạn.
+          </div>
+          <div class="notification-time">15 phút trước</div>
+        </div>
+      </div>
+    </div>
     <div class="ava">
       <img src="assets/anh3/anh-nen-mau-trang-001.jpg" alt="Error" />
     </div>
     <div class="user">Nguyễn Anh Tuấn</div>
-    <div class="side-menu">
-      <i class="fas fa-align-justify fa-2x" style="color: #838383b2"></i>
+    <div class="side-menu" id="menu-ellipsis-nav">
+      <div class="ellipsis-btn-nav">
+        <i class="fas fa-align-justify" style="color: #838383b2"></i>
+      </div>
+      <div class="menu-ellipsis1-nav">
+        <a class="menu-item-ell-nav">Thông tin cá nhân</a>
+        <a class="menu-item-ell-nav">Thay đổi mật khẩu</a>
+        <a class="menu-item-ell-nav">Đăng ký</a>
+        <a class="menu-item-ell-nav">Đăng Xuất</a>
+      </div>
+    </div>
+  </div>
+  <div class="icon-wrapper-new-mess">
+    <div class="icon icon-primary">
+      <i
+        class="fas fa-user-friends"
+        style="color: #4b5580"
+        title="Danh sách"
+      ></i>
+    </div>
+    <div class="friends-list">
+      <div class="tabs-mess">
+        <div class="tab-mess active" id="personal-tab">Liên lạc cá nhân</div>
+        <span class="separator">|</span>
+        <div class="tab-mess" id="group-tab">Nhóm</div>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm bạn bè" />
+        <span class="vertical-ellipsis"></span>
+      </div>
+      <div class="tab-content-mess active" id="personal-content">
+        <div class="friends-container">
+          <div class="friend">
+            <div class="friend-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="friend-status online"></span>
+            </div>
+            <div class="friend-info">
+              <span class="friend-name">Nguyễn Văn A</span><br />
+              <span class="friend-status-text" data-status="Online"></span>
+            </div>
+          </div>
+          <div class="friend">
+            <div class="friend-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="friend-status offline"></span>
+            </div>
+            <div class="friend-info">
+              <span class="friend-name">Trần Thị B</span><br />
+              <span class="friend-status-text" data-status="Offline"></span>
+            </div>
+          </div>
+          <div class="friend">
+            <div class="friend-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="friend-status online"></span>
+            </div>
+            <div class="friend-info">
+              <span class="friend-name">Lê Hoàng C</span><br />
+              <span class="friend-status-text" data-status="Online"></span>
+            </div>
+          </div>
+          <div class="friend">
+            <div class="friend-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="friend-status offline"></span>
+            </div>
+            <div class="friend-info">
+              <span class="friend-name">Nguyễn Thị E</span><br />
+              <span class="friend-status-text" data-status="Offline"></span>
+            </div>
+          </div>
+          <div class="friend">
+            <div class="friend-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="friend-status online"></span>
+            </div>
+            <div class="friend-info">
+              <span class="friend-name">Mộng Thị F</span><br />
+              <span class="friend-status-text" data-status="Online"></span>
+            </div>
+          </div>
+          <div class="friend">
+            <div class="friend-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="friend-status offline"></span>
+            </div>
+            <div class="friend-info">
+              <span class="friend-name">Tạ Thị Lạng</span><br />
+              <span class="friend-status-text" data-status="Offline"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content-mess" id="group-content">
+        <div class="groups-container">
+          <div class="group">
+            <div class="group-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="group-status"></span>
+            </div>
+            <div class="group-info">
+              <span class="group-name">Hội ăn uống</span><br />
+              <span
+                class="group-number"
+                data-members="5"
+                data-members-online="2"
+              ></span>
+            </div>
+          </div>
+          <div class="group">
+            <div class="group-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="group-status"></span>
+            </div>
+            <div class="group-info">
+              <span class="group-name">Hội số học</span><br />
+              <span
+                class="group-number"
+                data-members="4"
+                data-members-online="2"
+              ></span>
+            </div>
+          </div>
+          <div class="group">
+            <div class="group-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="group-status"></span>
+            </div>
+            <div class="group-info">
+              <span class="group-name">Hội bóc phốt</span><br />
+              <span
+                class="group-number"
+                data-members="6"
+                data-members-online="0"
+              ></span>
+            </div>
+          </div>
+          <div class="group">
+            <div class="group-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="group-status"></span>
+            </div>
+            <div class="group-info">
+              <span class="group-name">Hội xàm</span><br />
+              <span
+                class="group-number"
+                data-members="7"
+                data-members-online="5"
+              ></span>
+            </div>
+          </div>
+          <div class="group">
+            <div class="group-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="group-status"></span>
+            </div>
+            <div class="group-info">
+              <span class="group-name">Hội ăm cơm trước kẻng</span><br />
+              <span
+                class="group-number"
+                data-members="2"
+                data-members-online="0"
+              ></span>
+            </div>
+          </div>
+          <div class="group">
+            <div class="group-avatar">
+              <img
+                src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+                alt="Error"
+              />
+              <span class="group-status"></span>
+            </div>
+            <div class="group-info">
+              <span class="group-name">Hội bán nhà</span><br />
+              <span
+                class="group-number"
+                data-members="40"
+                data-members-online="1"
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="icon icon-secondary">
+      <i
+        class="fas fa-pencil-alt"
+        style="color: #4b5580"
+        title="Tin nhắn mới"
+      ></i>
+    </div>
+    <div class="new-mess">
+      <h2>Tin nhắn mới</h2>
+      <div class="search-box-new-mess">
+        <input type="text" placeholder="Đến:" id="search-input-new" />
+      </div>
+      <div class="friend-list-new" id="friend-list-new">
+        <div class="friend">
+          <div class="friend-avatar">
+            <img
+              src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+              alt="Error"
+            />
+            <span class="friend-status offline"></span>
+          </div>
+          <div class="friend-info">
+            <span class="friend-name">Trần Thị B</span><br />
+            <span class="friend-status-text" data-status="Offline"></span>
+          </div>
+        </div>
+        <div class="friend">
+          <div class="friend-avatar">
+            <img
+              src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+              alt="Error"
+            />
+            <span class="friend-status offline"></span>
+          </div>
+          <div class="friend-info">
+            <span class="friend-name">Méng Cù Lèng</span><br />
+            <span class="friend-status-text" data-status="Offline"></span>
+          </div>
+        </div>
+        <div class="friend">
+          <div class="friend-avatar">
+            <img
+              src="assets/anh3/Logo%20Cty%20(Chuan)%20-%20none%20background%201.png"
+              alt="Error"
+            />
+            <span class="friend-status online"></span>
+          </div>
+          <div class="friend-info">
+            <span class="friend-name">Lò Như Chí</span><br />
+            <span class="friend-status-text" data-status="Online"></span>
+          </div>
+        </div>
+        <!-- thêm các mục bạn bè ở đây -->
+      </div>
     </div>
   </div>
 </div>

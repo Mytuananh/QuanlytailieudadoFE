@@ -10,6 +10,22 @@ import { MainComponent } from './main/main.component';
 import { CommonModule } from '@angular/common';
 import { MainModule } from './main/main.module';
 import { LoginComponent } from './auth/login/login.component';
+import { ChatBoxComponent } from './component/chat-box/chat-box.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChatComponent } from './component/chat/chat.component';
+import { InjectableRxStompConfig, RxStompService, StompRService, rxStompServiceFactory } from '@stomp/ng2-stompjs';
+import { RegisterComponent } from './auth/register/register.component';
+
+const stompConfig: InjectableRxStompConfig = {
+  // Thay đổi địa chỉ WebSocket endpoint tùy thuộc vào backend của bạn
+  brokerURL: 'ws://localhost:8080/ws',
+  // Tên user đăng nhập vào hệ thống
+  connectHeaders: {
+    login: 'username',
+    // Mật khẩu đăng nhập
+    passcode: 'password',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -18,6 +34,9 @@ import { LoginComponent } from './auth/login/login.component';
     NavBarComponent,
     MainComponent,
     LoginComponent,
+    ChatBoxComponent,
+    ChatComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,9 +44,20 @@ import { LoginComponent } from './auth/login/login.component';
     HttpClientModule,
     CommonModule,
     MainModule,
+    ReactiveFormsModule,
+    FormsModule,
 
   ],
-  providers: [],
+  providers: [StompRService,
+    {
+      provide: InjectableRxStompConfig,
+      useValue: stompConfig,
+    },
+    {
+      provide: RxStompService,
+      useFactory: rxStompServiceFactory,
+      deps: [InjectableRxStompConfig],
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,8 @@
 function congtrinhinfo() {
+    if (typeof global === 'undefined') {
+        var global = window;
+      }
+      
     console.log('congtrinhinfo js');
     const carouselSlide = document.querySelector('.carousel-slide');
 const prevButton = document.querySelector('.prev');

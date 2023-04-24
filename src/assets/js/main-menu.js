@@ -1,4 +1,8 @@
 function mainMenu() {
+    if (typeof global === 'undefined') {
+        var global = window;
+      }
+      
     console.log('main menu js');
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
