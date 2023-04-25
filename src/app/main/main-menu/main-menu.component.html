@@ -103,11 +103,25 @@
       </ul>
     </nav>
   </div>
+
   <div class="content">
     <div id="main-my-side-qlct" class="body-qlct-2-2">
+      <div class="links">Quản lý công trình > thông tin chung</div>
       <div class="tabs">
+        <div class="tab-i">
+          <div class="name-1-1">Tồng công trình</div>
+          <div class="number-1-1">
+            {{
+              countAll.congDuoiDe +
+                countAll.tramBom +
+                countAll.kenhCapI +
+                countAll.kenhTuoiSauTB +
+                countAll.congTrinhTrenKenh
+            }}
+          </div>
+        </div>
         <div
-          class="tab-item active"
+          class="tab-item active CONG"
           (click)="
             changeCongTrinhType('CONG', 'Cống dưới đê', countAll.congDuoiDe)
           "
@@ -116,7 +130,7 @@
           <div class="number-1">{{ countAll.congDuoiDe }}</div>
         </div>
         <div
-          class="tab-item"
+          class="tab-item TRAM_BOM"
           (click)="
             changeCongTrinhType('TRAM_BOM', 'Trạm bơm', countAll.tramBom)
           "
@@ -125,7 +139,7 @@
           <div class="number-1">{{ countAll.tramBom }}</div>
         </div>
         <div
-          class="tab-item"
+          class="tab-item KENH_DAT"
           (click)="
             changeCongTrinhType('KENH_DAT', 'Kênh cấp I', countAll.kenhCapI)
           "
@@ -134,7 +148,7 @@
           <div class="number-1">{{ countAll.kenhCapI }}</div>
         </div>
         <div
-          class="tab-item"
+          class="tab-item KENH_TUOI"
           (click)="
             changeCongTrinhType(
               'KENH_TUOI',
@@ -147,7 +161,7 @@
           <div class="number-1">{{ countAll.kenhTuoiSauTB }}</div>
         </div>
         <div
-          class="tab-item"
+          class="tab-item KENH_XAY"
           (click)="
             changeCongTrinhType(
               'KENH_XAY',
@@ -165,10 +179,10 @@
           <div class="menu-tit">
             <div class="menu-tit-1">{{ congTrinhSelectedMessage }}</div>
             <div class="menu-tit-2">
-              <div class="m-t-1" id="addNewBtn">
+              <div class="m-t-1" id="addNewBtn-1">
                 <i class="fas fa-plus"></i>Thêm mới
               </div>
-              <div id="functionList" class="function-list">
+              <div id="functionList-1" class="function-list">
                 <div class="function-list-item" data-function="thongTinChung">
                   Thông tin chung
                 </div>
@@ -183,213 +197,886 @@
                 </div>
               </div>
               <!-- The Modal Thong Tin Chung -->
-              <div id="myModal" class="modal">
+              <div id="myModal-1" class="modal">
                 <!-- Modal content -->
                 <div class="modal-content">
                   <span class="close">&times;</span>
-                  <h2>Thông tin công trình</h2>
-                  <form (ngSubmit)="createCongTrinh()" id="createCT">
-                    <div class="form-group">
-                      <label for="project-code">Mã công trình:</label>
-                      <select id="project-code" name="project-code">
-                        <option value="K">K</option>
-                        <option value="TB">TB</option>
-                        <option value="KT">KT</option>
-                        <option value="C">C</option>
-                        <option value="CTTK">CTTK</option>
-                      </select>
-                      <input
-                        type="text"
-                        id="project-code-num"
-                        name="project-code-num"
-                        placeholder="Số thứ tự"
-                      />
-                      <span
-                        class="error-message"
-                        id="project-code-error"
-                      ></span>
+                  <div class="infor-CT">
+                    <div class="name-CT">
+                      Thông tin chung:
+                      <span class="name-1-CT">Công Trình Cống</span>
                     </div>
-                    <div class="form-group">
-                      <label for="project-name">Tên công trình:</label>
-                      <input
-                        type="text"
-                        id="project-name"
-                        name="project-name"
-                      />
-                      <span
-                        class="error-message"
-                        id="project-name-error"
-                      ></span>
-                    </div>
-                    <div class="form-group">
-                      <label for="project-location">Vị trí, địa điểm:</label>
-                      <input
-                        type="text"
-                        id="project-location-name"
-                        name="project-location-name"
-                        placeholder="Tên địa điểm"
-                      />
-                      <input
-                        type="text"
-                        id="project-location-x"
-                        name="project-location-x"
-                        placeholder="Tọa độ X"
-                      />
-                      <input
-                        type="text"
-                        id="project-location-y"
-                        name="project-location-y"
-                        placeholder="Tọa độ Y"
-                      />
-                      <span
-                        class="error-message"
-                        id="project-location-error"
-                      ></span>
-                    </div>
-                    <div class="form-group">
-                      <label for="project-scale">Quy mô:</label>
-                      <input
-                        type="text"
-                        id="project-scale"
-                        name="project-scale"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label for="project-equipment">Thiết bị:</label>
-                      <input
-                        type="text"
-                        id="project-equipment"
-                        name="project-equipment"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label for="related-projects"
-                        >Công trình liên quan:</label
-                      >
-                      <select id="related-projects" name="related-projects">
-                        <option
-                          *ngFor="let ct of listCTLienQuan; let i = index"
-                          [value]="ct.maCT"
-                        >
-                          {{ ct.name }}
-                        </option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="other-info">Thông tin khác:</label>
-                      <input type="text" id="other-info" name="other-info" />
-                      <input
-                        type="file"
-                        id="file-upload"
-                        name="file-upload"
-                        accept=".pdf, .docs, .docx"
-                        multiple
-                      />
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" id="saveBtn">Lưu thông tin</button>
-                      <button type="button" id="cancelBtn">Hủy bỏ</button>
-                    </div>
-                  </form>
+                  </div>
+                  <div class="form-start">
+                    <table style="overflow: auto">
+                      <thead>
+                        <tr>
+                          <th>TT</th>
+                          <th>Hạng mục</th>
+                          <th>Nhập thông tin mô tả</th>
+                          <th>Nhập dữ liệu</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Dòng 1 -->
+                        <tr>
+                          <td>01</td>
+                          <td>Mã công trình (ID)</td>
+                          <td>
+                            <div class="select-wrapper">
+                              <select
+                                id="project-code-1"
+                                name="project-code-1"
+                                class="select"
+                              >
+                                <option value="C">C</option>
+                                <option value="K">K</option>
+                                <option value="CT">CT</option>
+                                <option value="TB">TB</option>
+                                <option value="KT">KT</option>
+                                <option value="CTTK">CTTK</option>
+                                <option value="CTK">CTK</option>
+                              </select>
+                              <span>STT:</span>
+                              <input
+                                id="project-code-num-1"
+                                name="project-code-num-1"
+                                class="input"
+                                type="text"
+                              />
+                              <span
+                                class="error-message"
+                                id="project-code-error-1"
+                              ></span>
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 2 -->
+                        <tr>
+                          <td>02</td>
+                          <td>Tên công trình</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-name-1"
+                              name="project-name-1"
+                            />
+                            <span
+                              class="error-message"
+                              id="project-name-error-1"
+                            ></span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 3 -->
+                        <tr>
+                          <td>03</td>
+                          <td>Vị trí/Địa điểm</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-location-name-1"
+                              name="project-location-name-1"
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 4 -->
+                        <tr>
+                          <td></td>
+                          <td>Tọa độ</td>
+                          <td>
+                            <div class="coordinates">
+                              <input
+                                type="text"
+                                placeholder="Tọa độ X"
+                                id="project-location-x-1"
+                                name="project-location-x-1"
+                              />
+                              <input
+                                type="text"
+                                placeholder="Tọa độ Y"
+                                id="project-location-y-1"
+                                name="project-location-y-1"
+                              />
+                              <span
+                                class="error-message"
+                                id="project-location-error-1"
+                              ></span>
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 5 -->
+                        <tr>
+                          <td>04</td>
+                          <td>Quy mô</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-scale-1"
+                              name="project-scale-1"
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 6 -->
+                        <tr>
+                          <td>05</td>
+                          <td>Thiết bị vận hành</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-equipment-1"
+                              name="project-equipment-1"
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 7 -->
+                        <tr>
+                          <td>06</td>
+                          <td>Công trình liên quan</td>
+                          <td>
+                            <div>
+                              <select
+                                multiple
+                                id="selectedCT"
+                                style="width: 100%"
+                              ></select>
+                            </div>
+                            <div class="autocomplete">
+                              <input
+                                type="text"
+                                placeholder="Tìm kiếm công trình..."
+                                id="related-projects-1"
+                                name="related-projects-1"
+                              />
+                              <div
+                                class="search-results"
+                                id="searchResults"
+                                style="display: none"
+                              ></div>
+                            </div>
+                          </td>
+                        </tr>
+                        <!-- Dòng 9 -->
+                        <tr>
+                          <td>08</td>
+                          <td>Thông tin khác</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="other-info"
+                              [(ngModel)]="ortherInfomation"
+                              name="ortherInfomation"
+                            />
+                          </td>
+                          <td>
+                            <div class="info-input-wrapper">
+                              <select class="infoType" id="infoTypeSelect">
+                                <option value="link">Link</option>
+                                <option value="file">File</option>
+                              </select>
+                              <input
+                                type="text"
+                                class="input-link"
+                                id="input-link"
+                                placeholder="Nhập link"
+                              />
+                              <input
+                                type="file"
+                                class="input-file"
+                                style="display: none"
+                                id="input-file"
+                                multiple
+                                (change)="addFile()"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                        <!-- Dòng 10 -->
+                        <tr>
+                          <td>09</td>
+                          <td>Thông tin hình ảnh</td>
+                          <td>
+                            <select id="imageFiles-1" multiple>
+                              <option
+                                *ngFor="let img of images; let i = index"
+                                [value]="img.name"
+                              >
+                                {{ img.name }}
+                              </option>
+                            </select>
+                            <button (click)="removeSelectedImage1()">
+                              Xóa ảnh
+                            </button>
+                          </td>
+                          <td>
+                            <input
+                              type="file"
+                              id="imageInput-1"
+                              name="imageInput"
+                              (change)="updateImageOptions1()"
+                              multiple
+                            />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="save-noti">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Dòng 1 -->
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td>Ghi chú: <input type="text" /></td>
+                          <td>
+                            Thông báo tới:
+                            <select class="select">
+                              <option>Không thông báo</option>
+                              <option>Toàn công ty</option>
+                              <option>Ban giám đốc</option>
+                              <option>Phòng Kế hoạch - kỹ thuật</option>
+                              <option>Trà (PTP KHKT)</option>
+                            </select>
+                          </td>
+                          <td>
+                            <button
+                              type="submit"
+                              class="butt-can"
+                              id="cancelBtn-1"
+                            >
+                              Hủy
+                            </button>
+                            <button
+                              type="submit"
+                              class="butt-sav"
+                              id="saveBtn-1"
+                              (click)="createCongTrinh()"
+                            >
+                              Lưu lại
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
               <!-- The Modal Thong Tin Quan Ly -->
-              <div id="myModal1" class="modal">
+              <div id="myModal2" class="modal">
                 <!-- Modal content -->
                 <div class="modal-content">
-                  <span class="close1">&times;</span>
-                  <h2>Thông tin công trình</h2>
-                  <form (ngSubmit)="updateCongTrinh()" id="updateCT">
-                    <div class="form-group">
-                      <label for="project-name-did"
-                        >Chọn công trình quản lý:</label
-                      >
-                      <select
-                        id="project-name-did"
-                        name="project-name-did"
-                        [(ngModel)]="selectedMaCT"
-                        (change)="onCTSelected(selectedMaCT)"
-                      >
-                        <option
-                          *ngFor="let ct of listCTLienQuan; let i = index"
-                          [value]="ct.maCT"
-                        >
-                          {{ ct.name }}
-                        </option>
-                      </select>
+                  <span class="close-1">&times;</span>
+                  <div class="infor-CT">
+                    <div class="name-CT">
+                      Thông tin quản lý:
+                      <span class="name-1-CT">Công Trình Cống</span>
                     </div>
-                    <div class="form-group">
-                      <label for="project-type">Quản lý tài sản:</label>
-                      <select
-                        id="project-type"
-                        name="project-type"
-                        [(ngModel)]="selectedForUpdateCT.quanLyTaiSanType"
-                      >
-                        <option value="SO_NNPTNT">Sở NNPTNT</option>
-                        <option value="CONG_TY_DA_DO">Công Ty</option>
-                      </select>
+                  </div>
+                  <div class="form-start">
+                    <table style="overflow: auto">
+                      <thead>
+                        <tr>
+                          <th>TT</th>
+                          <th>Hạng mục</th>
+                          <th>Nhập thông tin mô tả</th>
+                          <th>Nhập dữ liệu</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Dòng 1 -->
+                        <tr>
+                          <td>01</td>
+                          <td>Công trình quản lý</td>
+                          <td>
+                            <div class="select-wrapper2">
+                              <select
+                                id="project-name-did-1"
+                                name="project-name-did-1"
+                                class="select"
+                              >
+                                <option>Cống Trung Trang</option>
+                                <option>Cống Cổ Tiểu</option>
+                                <option>Cống Táo</option>
+                                <option>Cống Mai Dương</option>
+                                <option>Cống Cao Mật</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 2 -->
+                        <tr>
+                          <td>02</td>
+                          <td>Quản lý tài sản</td>
+                          <td>
+                            <div class="select-wrapper2">
+                              <select
+                                id="project-type-1"
+                                name="project-type-1"
+                                class="select"
+                              >
+                                <option>Sở NNPTNT</option>
+                                <option>Công Ty</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 3 -->
+                        <tr>
+                          <td>03</td>
+                          <td>Trạng thái công trình</td>
+                          <td>
+                            <div class="select-wrapper2">
+                              <select
+                                id="project-status-1"
+                                name="project-status-1"
+                                class="select"
+                              >
+                                <option>Đã cắm mốc</option>
+                                <option>Chưa cắm mốc</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 4 -->
+                        <tr>
+                          <td></td>
+                          <td>Vi phạm lấn chiếm</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-encroachment-violation-1"
+                              name="project-encroachment-violation-1"
+                              readonly
+                              value="Đang cập nhật"
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 5 -->
+                        <tr>
+                          <td>04</td>
+                          <td>Lịch sử công trình</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-history-1"
+                              name="project-history-1"
+                            />
+                          </td>
+                          <td style="display: flex; align-items: center">
+                            <span style="margin-right: 3px"
+                              >Lịch sử sửa chữa:
+                            </span>
+                            <input
+                              type="text"
+                              value="2 hồ sơ"
+                              style="width: 10vh; margin-right: 30px"
+                              readonly
+                            />
+                            <input
+                              type="search"
+                              placeholder="Tìm kiếm hồ sơ công trình..."
+                              id="project-history-file-1"
+                              name="project-history-file-1"
+                              style="width: 45vh"
+                            />
+                            <span
+                              class="error-message"
+                              id="project-history-error-1"
+                            ></span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="save-noti">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Dòng 1 -->
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td>Ghi chú: <input type="text" /></td>
+                          <td>
+                            Thông báo tới:
+                            <select class="select">
+                              <option>Không thông báo</option>
+                              <option>Toàn công ty</option>
+                              <option>Ban giám đốc</option>
+                              <option>Phòng Kế hoạch - kỹ thuật</option>
+                              <option>Trà (PTP KHKT)</option>
+                            </select>
+                          </td>
+                          <td>
+                            <button
+                              type="submit"
+                              class="butt-can"
+                              id="cancelBtn1-2"
+                            >
+                              Hủy
+                            </button>
+                            <button
+                              type="submit"
+                              class="butt-sav"
+                              id="saveBtn1-2"
+                            >
+                              Lưu lại
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- The Modal Ho So Cong Trinh -->
+              <div id="myModal6" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close-10">&times;</span>
+                  <div class="infor-CT">
+                    <div class="name-CT">
+                      Hồ sơ công trình:
+                      <span class="name-1-CT">Hồ Sơ Công Trình Cống</span>
                     </div>
-                    <div class="form-group">
-                      <label for="project-status">Trạng thái công trình:</label>
-                      <select
-                        id="project-status"
-                        name="project-status"
-                        [(ngModel)]="selectedForUpdateCT.trangThaiCongTrinh"
-                      >
-                        <option value="DA_CAM_MOC">Đã cắm mốc</option>
-                        <option value="CHUA_CAM_MOC">chưa cắm mốc</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="project-encroachment-violation"
-                        >Vi phạm lấn chiếm:</label
-                      >
-                      <input
-                        type="text"
-                        id="project-encroachment-violation"
-                        name="project-encroachment-violation"
-                        readonly
-                        value="Đang cập nhật"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label for="project-history">Lịch sử công trình:</label>
-                      <input
-                        type="text"
-                        id="project-history"
-                        name="project-history"
-                        [(ngModel)]="selectedForUpdateCT.lichSuCT"
-                      />
-                      <span
-                        class="error-message"
-                        id="project-history-error"
-                      ></span>
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" id="saveBtn1">Lưu thông tin</button>
-                      <button type="button" id="cancelBtn1">Hủy bỏ</button>
-                    </div>
-                  </form>
+                  </div>
+                  <div class="form-start">
+                    <table style="overflow: auto">
+                      <thead>
+                        <tr>
+                          <th>TT</th>
+                          <th>Hạng mục</th>
+                          <th>Nhập thông tin mô tả</th>
+                          <th>Nhập dữ liệu</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Dòng 1 -->
+                        <tr>
+                          <td>01</td>
+                          <td>Công trình sửa chữa</td>
+                          <td>
+                            <div class="select-wrapper2">
+                              <select
+                                id="project-name-did-hs"
+                                name="project-name-did-hs"
+                                class="select"
+                              >
+                                <option>Cống Trung Trang</option>
+                                <option>Cống Cổ Tiểu</option>
+                                <option>Cống Táo</option>
+                                <option>Cống Mai Dương</option>
+                                <option>Cống Cao Mật</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>Mã CT: 01</td>
+                        </tr>
+                        <!-- Dòng 2 -->
+                        <tr>
+                          <td>02</td>
+                          <td>Loại hồ sơ</td>
+                          <td>
+                            <div class="select-wrapper2">
+                              <select
+                                id="project-type-hs"
+                                name="project-type-hs"
+                                class="select"
+                              >
+                                <option>Sửa chữa thường xuyên (HS SCTX)</option>
+                                <option>Sửa chữa lớn</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 3 -->
+                        <tr>
+                          <td>03</td>
+                          <td>Mã hồ sơ</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-code-hs"
+                              name="project-code-hs"
+                              placeholder="01.MHS"
+                            />
+                            <span
+                              class="error-message"
+                              id="project-code-error-hs"
+                            ></span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 4 -->
+                        <tr>
+                          <td>04</td>
+                          <td>Tên hồ sơ</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-name-hs"
+                              name="project-name-hs"
+                            />
+                            <span
+                              class="error-message"
+                              id="project-name-error-hs"
+                            ></span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 5 -->
+                        <tr>
+                          <td>05</td>
+                          <td>Địa điểm</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-location-name-hs"
+                              name="project-location-name-hs"
+                            />
+                            <span
+                              class="error-message"
+                              id="project-location-name-error-hs"
+                            ></span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 6 -->
+                        <tr>
+                          <td></td>
+                          <td>Tọa độ</td>
+                          <td>
+                            <div class="coordinates">
+                              <input
+                                type="text"
+                                placeholder="Tọa độ X"
+                                id="project-location-x-hs"
+                                name="project-location-x-hs"
+                              />
+                              <input
+                                type="text"
+                                placeholder="Tọa độ Y"
+                                id="project-location-y-hs"
+                                name="project-location-y-hs"
+                              />
+                              <span
+                                class="error-message"
+                                id="project-location-error-hs"
+                              ></span>
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 7 -->
+                        <tr>
+                          <td>06</td>
+                          <td>Năm thực hiện</td>
+                          <td>
+                            <input
+                              type="date"
+                              id="project-time-hs"
+                              name="project-time-hs"
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 8 -->
+                        <tr>
+                          <td>07</td>
+                          <td>Đơn vị lập hồ sơ</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-dvlhs-hs"
+                              name="project-dvlhs-hs"
+                            />
+                            <span
+                              class="error-message"
+                              id="project-dvlhs-error-hs"
+                            ></span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 9 -->
+                        <tr>
+                          <td>08</td>
+                          <td>Nguồn vốn</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-von-hs"
+                              name="project-von-hs"
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 10 -->
+                        <tr>
+                          <td>09</td>
+                          <td>Quyết định phê duyệt dự toán</td>
+                          <td>
+                            <div class="coordinates">
+                              <input
+                                type="text"
+                                id="project-qd-hs"
+                                name="project-qd-hs"
+                                placeholder="122/QĐ-TLĐ"
+                              />
+                              <input
+                                type="date"
+                                id="project-date-hs"
+                                name="project-date-hs"
+                              />
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 11 -->
+                        <tr>
+                          <td>10</td>
+                          <td>Giá trị dự toán</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-money-dt-hs"
+                              name="project-money-dt-hs"
+                              placeholder="100.000.000"
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 12 -->
+                        <tr>
+                          <td>11</td>
+                          <td>Đơn vị thi công</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-dvtc-hs"
+                              name="project-dvtc-hs"
+                              placeholder="Xí nghiệp xây lắp"
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 13 -->
+                        <tr>
+                          <td>12</td>
+                          <td>Thời gian thi công</td>
+                          <td>
+                            <div class="select-wrapper">
+                              <span>Từ:</span>
+                              <input
+                                type="date"
+                                id="project-date-start-hs"
+                                name="project-date-start-hs"
+                              />
+                              <span>Đến:</span>
+                              <input
+                                id="project-date-end"
+                                name="project-date-end"
+                                type="date"
+                              />
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 14 -->
+                        <tr>
+                          <td>13</td>
+                          <td>Tiến độ thi công</td>
+                          <td>
+                            <div class="select-wrapper">
+                              <select
+                                id="project-tdtc-hs"
+                                name="project-tdtc-hs"
+                                class="select"
+                              >
+                                <option>Chưa thi công</option>
+                                <option>Thi công được 10%</option>
+                                <option>Thi công được 20%</option>
+                                <option>Thi công được 30%</option>
+                                <option>Thi công được 40%</option>
+                                <option>Thi công được 50%</option>
+                                <option>Thi công được 60%</option>
+                                <option>Thi công được 70%</option>
+                                <option>Thi công được 80%</option>
+                                <option>Thi công được 90%</option>
+                                <option>Đã thi công xong</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 15 -->
+                        <tr>
+                          <td>14</td>
+                          <td>Quyết định phê duyệt quyết toán</td>
+                          <td>
+                            <div class="coordinates">
+                              <input
+                                type="text"
+                                id="project-qdqt-hs"
+                                name="project-qd-hs"
+                                placeholder="122/QĐ-TLĐ"
+                              />
+                              <input
+                                type="date"
+                                id="project-date-qdqt-hs"
+                                name="project-date-hs"
+                              />
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 16-->
+                        <tr>
+                          <td>15</td>
+                          <td>Giá trị quyết toán</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-gtqt-hs"
+                              name="project-gtqt-hs"
+                              placeholder="90.000.000"
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 17-->
+                        <tr>
+                          <td>15</td>
+                          <td>Người phụ trách</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-npt-hs"
+                              name="project-npt-hs"
+                              placeholder="Nguyễn Văn A"
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                        <!-- Dòng 18-->
+                        <tr>
+                          <td>16</td>
+                          <td>Ghi chú</td>
+                          <td>
+                            <input
+                              type="text"
+                              id="project-note-hs"
+                              name="project-note-hs"
+                              placeholder="Viết gì đó..."
+                            />
+                          </td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="save-noti">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Dòng 1 -->
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td>Ghi chú: <input type="text" /></td>
+                          <td>
+                            Thông báo tới:
+                            <select class="select">
+                              <option>Không thông báo</option>
+                              <option>Toàn công ty</option>
+                              <option>Ban giám đốc</option>
+                              <option>Phòng Kế hoạch - kỹ thuật</option>
+                              <option>Trà (PTP KHKT)</option>
+                            </select>
+                          </td>
+                          <td>
+                            <button
+                              type="submit"
+                              class="butt-can"
+                              id="cancelBtn-hs"
+                            >
+                              Hủy
+                            </button>
+                            <button
+                              type="submit"
+                              class="butt-sav"
+                              id="saveBtn1-hs"
+                            >
+                              Lưu lại
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
               <div class="m-t-2">
-                <form method="get">
-                  <div class="search-box">
+                <form action="#" method="get">
+                  <div class="search-boxx">
                     <input
                       type="text"
-                      class="search-txt"
-                      name="search"
+                      class="search-txtt"
                       placeholder="Tìm kiếm..."
                       [(ngModel)]="search"
+                      name="search"
                       (input)="searchCongTrinhName()"
                     />
-                    <button type="submit" class="search-btn">
-                      <i class="fas fa-search"></i>
-                    </button>
                   </div>
                 </form>
               </div>
-              <div class="m-t-3"><i class="fas fa-ellipsis-v fa-2x"></i></div>
+              <div class="m-t-3" id="menu-ellipsis">
+                <div class="ellipsis-btn">
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="menu-ellipsis1">
+                  <a class="menu-item-ell" id="toggleBtn1">Xóa</a>
+                  <a class="menu-item-ell">Sắp xếp theo hồ sơ công trình</a>
+                  <a class="menu-item-ell">Sắp xếp theo hồ sơ vi phạm</a>
+                  <a class="menu-item-ell">Sắp xếp theo hồ sơ vận hành</a>
+                  <a class="menu-item-ell">Sắp xếp theo hồ sơ khác</a>
+                </div>
+              </div>
             </div>
           </div>
           <div class="content-qlct">
@@ -398,10 +1085,13 @@
                 <tr>
                   <th>ID</th>
                   <th>Hạng mục</th>
-                  <th>Thông tin công trình</th>
+                  <th>Thông tin chung</th>
                   <th>Thông tin quản lý</th>
                   <th>Hồ sơ công trình</th>
                   <th>Hồ sơ vi phạm</th>
+                  <th>Hồ sơ vận hành</th>
+                  <th>Hồ sơ khác</th>
+                  <th style="display: none" class="deleteColumn1">Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -417,16 +1107,35 @@
                   >
                     Xem
                   </td>
-                  <td onclick="Hp()" style="cursor: pointer">Xem</td>
-                  <td onclick="Hp()" style="cursor: pointer">
+                  <td style="cursor: pointer">Xem</td>
+                  <td style="cursor: pointer">
                     {{ ct.hoSoCTCount > 0 ? ct.hoSoCTCount + " hồ sơ" : "-" }}
                   </td>
-                  <td onclick="Hp()" style="cursor: pointer">
+                  <td style="cursor: pointer">
                     {{
                       ct.hoSoViPhamCount > 0
                         ? ct.hoSoViPhamCount + " hồ sơ"
                         : "-"
                     }}
+                  </td>
+                  <td style="cursor: pointer">
+                    {{
+                      ct.hoSoVanHanhCount && ct.hoSoVanHanhCount > 0
+                        ? ct.hoSoVanHanhCount + " hồ sơ"
+                        : "-"
+                    }}
+                  </td>
+                  <td style="cursor: pointer">
+                    {{
+                      ct.hoSoKhac && ct.hoSoKhac > 0
+                        ? ct.hoSoKhac + " hồ sơ"
+                        : "-"
+                    }}
+                  </td>
+                  <td style="display: none" class="deleteColumn1">
+                    <a class="icon-delete" (click)="iconDeleteCT(ct.maCT)"
+                      ><i class="fas fa-trash-alt" style="color: #1a0ce4"></i
+                    ></a>
                   </td>
                 </tr>
               </tbody>
@@ -434,6 +1143,13 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div id="confirmModal" class="modal-delete">
+    <div class="modal-content-del">
+      <p>Bạn chắc chắn xóa không?</p>
+      <button id="yesBtn" (click)="acceptDeleteCT()">Có</button>
+      <button id="noBtn">Không</button>
     </div>
   </div>
 </div>

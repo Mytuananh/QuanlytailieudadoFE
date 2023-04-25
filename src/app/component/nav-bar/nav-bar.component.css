@@ -3,6 +3,7 @@
     width: 100%;
     height: 6vh;
     display: flex;
+    border-bottom: 3px solid #c4c0c0;
 }
 .logo-qlct{
     width: 20%;

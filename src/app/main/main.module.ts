@@ -6,6 +6,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { QuanlycongtrinhComponent } from './quanlycongtrinh/quanlycongtrinh.component';
 import { FormsModule } from '@angular/forms';
 import { CongtrinhinfoComponent } from './congtrinhinfo/congtrinhinfo.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { CongtrinhinfoComponent } from './congtrinhinfo/congtrinhinfo.component'
     CommonModule,
     MainRoutingModule,
     FormsModule,
+    HttpClientModule,
   ]
 })
 export class MainModule { }

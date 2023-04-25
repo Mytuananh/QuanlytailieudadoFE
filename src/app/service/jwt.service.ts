@@ -16,7 +16,7 @@ export class JwtService {
         return {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${sessionStorage.getItem('jwtToken')}`
+                'Authorization': `Bearer ${sessionStorage.getItem('jwtToken')}`,
             })
         };
     }
