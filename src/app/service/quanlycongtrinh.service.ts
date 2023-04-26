@@ -22,7 +22,7 @@ export class QuanlycongtrinhService {
   }
 
   createCongTrinh(congTrinhDto: any) {
-    return this.http.post(`http://localhost:8080/api/cong-trinh/create-cong-trinh`, congTrinhDto, this.jwtService.getHttpOptions());
+    return this.http.post(`http://localhost:8080/api/cong-trinh/create-cong-trinh`, congTrinhDto, this.jwtService.getHttpOptionsFile());
   }
 
   updateCongTrinh(congTrinh: any) {
@@ -63,5 +63,10 @@ export class QuanlycongtrinhService {
 
   getCTByMaCT(maCT: string) {
     return this.http.get(`http://localhost:8080/api/cong-trinh/maCT/${maCT}`, this.jwtService.getHttpOptions())
+  }
+
+  updateThongTinQuanLyCongTrinh(body: any) {
+    return this.http.post(`http://localhost:8080/api/cong-trinh/updateThongTinQuanLyCongTrinh`, body, this.jwtService.getHttpOptionsFile())
+
   }
 }

@@ -49,7 +49,7 @@ export class MainMenuComponent implements OnInit {
     this.quanlyCongTrinhService.getData('CONG').subscribe((response: any) => {
       this.listCTAll = response;
       this.listCT = this.listCTAll;
-      this.congTrinhSelectedMessage = `Cống dưới đê ( ${this.countAll.congDuoiDe} công trình )`;
+      this.congTrinhSelectedMessage = `Cống dưới đê (${this.countAll.congDuoiDe} công trình)`;
       this.trang3DeleteService.initTrang3Delete(this.listCTAll.map((ct: any) => ct.name));
     })
     this.quanlyCongTrinhService.getAllCongTrinh().subscribe((response: any) => {
@@ -66,7 +66,7 @@ export class MainMenuComponent implements OnInit {
   }
 
   changeCongTrinhType(type: string, message: string, count: number) {
-    this.congTrinhSelectedMessage = `${message} ( ${count} công trình )`;
+    this.congTrinhSelectedMessage = `${message} (${count} công trình)`;
 
     this.quanlyCongTrinhService.getData(type).subscribe((response: any) => {
       this.listCTAll = response;
@@ -121,8 +121,8 @@ export class MainMenuComponent implements OnInit {
     console.log(body);
 
     const formData = new FormData();
+    formData.set("viTri", body.viTri);
     formData.append("name", body.name);
-    formData.append("viTri", body.viTri);
     formData.append("type", body.type);
     formData.append("quyMo", body.quyMo);
     formData.append("thietBi", body.thietBi);
@@ -154,6 +154,29 @@ export class MainMenuComponent implements OnInit {
     }
 
     this.quanlyCongTrinhService.createCongTrinh(formData).subscribe((response: any) => {
+      console.log(response);
+      location.reload();
+    });
+  }
+
+  updateThongTinQuanLyCongTrinh() {
+    const body = {
+      maCT: (<HTMLSelectElement>document.querySelector("#project-name-did-1")).value,
+      quanLyTaiSanType: (<HTMLSelectElement>document.querySelector("#project-type-1")).value,
+      trangThaiCongTrinh: (<HTMLSelectElement>document.querySelector("#project-status-1")).value,
+      viPhamLanChiem: (<HTMLInputElement>document.querySelector("#project-encroachment-violation-1")).value.trim(),
+      lichSuCT: (<HTMLInputElement>document.querySelector("#project-history-1")).value.trim(),
+    };
+    console.log(body);
+
+    const formData = new FormData();
+    formData.append("maCT", body.maCT);
+    formData.append("quanLyTaiSanType", body.quanLyTaiSanType);
+    formData.append("trangThaiCongTrinh", body.trangThaiCongTrinh);
+    formData.append("viPhamLanChiem", body.viPhamLanChiem);
+    // formData.append("congTrinhLienQuan", body.congTrinhLienQuan);
+    formData.append("lichSuCT", body.lichSuCT);
+    this.quanlyCongTrinhService.updateThongTinQuanLyCongTrinh(formData).subscribe((response: any) => {
       console.log(response);
       location.reload();
     });

@@ -204,7 +204,7 @@
                   <div class="infor-CT">
                     <div class="name-CT">
                       Thông tin chung:
-                      <span class="name-1-CT">Công Trình Cống</span>
+                      <span class="name-1-CT">Công Trình Mới</span>
                     </div>
                   </div>
                   <div class="form-start">
@@ -484,7 +484,9 @@
                   <div class="infor-CT">
                     <div class="name-CT">
                       Thông tin quản lý:
-                      <span class="name-1-CT">Công Trình Cống</span>
+                      <span class="name-1-CT">{{
+                        congTrinhSelectedMessage
+                      }}</span>
                     </div>
                   </div>
                   <div class="form-start">
@@ -509,11 +511,13 @@
                                 name="project-name-did-1"
                                 class="select"
                               >
-                                <option>Cống Trung Trang</option>
-                                <option>Cống Cổ Tiểu</option>
-                                <option>Cống Táo</option>
-                                <option>Cống Mai Dương</option>
-                                <option>Cống Cao Mật</option>
+                                <option
+                                  *ngFor="let ct of listCT; let i = index"
+                                  class="{{ ct.name }}"
+                                  [value]="ct.maCT"
+                                >
+                                  {{ ct.name }}
+                                </option>
                               </select>
                             </div>
                           </td>
@@ -530,8 +534,8 @@
                                 name="project-type-1"
                                 class="select"
                               >
-                                <option>Sở NNPTNT</option>
-                                <option>Công Ty</option>
+                                <option value="SO_NNPTNT">Sở NNPTNT</option>
+                                <option value="CONG_TY_DA_DO">Công Ty</option>
                               </select>
                             </div>
                           </td>
@@ -548,8 +552,10 @@
                                 name="project-status-1"
                                 class="select"
                               >
-                                <option>Đã cắm mốc</option>
-                                <option>Chưa cắm mốc</option>
+                                <option value="DA_CAM_MOC">Đã cắm mốc</option>
+                                <option value="CHUA_CAM_MOC">
+                                  Chưa cắm mốc
+                                </option>
                               </select>
                             </div>
                           </td>
@@ -646,6 +652,7 @@
                               type="submit"
                               class="butt-sav"
                               id="saveBtn1-2"
+                              (click)="updateThongTinQuanLyCongTrinh()"
                             >
                               Lưu lại
                             </button>

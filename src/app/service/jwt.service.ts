@@ -20,4 +20,13 @@ export class JwtService {
             })
         };
     }
+
+    getHttpOptionsFile() {
+        return {
+            headers: new HttpHeaders({
+                // 'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${sessionStorage.getItem('jwtToken')}`,
+            })
+        };
+    }
 }
