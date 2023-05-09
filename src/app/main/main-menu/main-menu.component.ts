@@ -56,7 +56,7 @@ export class MainMenuComponent implements OnInit {
       this.listCTLienQuan = response;
       this.listCTLienQuanSearch = this.listCTLienQuan;
     })
-    // mainMenu();
+    mainMenu();
     this.modaltrang3Service.initModalTrang3();
     this.rightbartrang3Service.initRightBarTrang3();
   }

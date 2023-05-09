@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChatComponent } from './component/chat/chat.component';
 import { InjectableRxStompConfig, RxStompService, StompRService, rxStompServiceFactory } from '@stomp/ng2-stompjs';
 import { RegisterComponent } from './auth/register/register.component';
+import { HoSoCongTrinhComponent } from './main/ho-so-cong-trinh/ho-so-cong-trinh.component';
 
 const stompConfig: InjectableRxStompConfig = {
   // Thay đổi địa chỉ WebSocket endpoint tùy thuộc vào backend của bạn
@@ -37,6 +38,7 @@ const stompConfig: InjectableRxStompConfig = {
     ChatBoxComponent,
     ChatComponent,
     RegisterComponent,
+    HoSoCongTrinhComponent,
   ],
   imports: [
     BrowserModule,

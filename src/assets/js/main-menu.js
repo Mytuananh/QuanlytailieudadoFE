@@ -84,7 +84,7 @@ function mainMenu() {
     var modal1 = document.getElementById('myModal1')
     // Get the <span> element that closes the modal
     const span = document.getElementsByClassName("close")[0];
-    const span1 = document.getElementsByClassName("close1")[0];
+    // const span1 = document.getElementsByClassName("close1")[0];
 
     // Get the buttons to save and cancel changes
     const saveBtn = document.getElementById("saveBtn");
@@ -211,9 +211,9 @@ function mainMenu() {
     span.onclick = function () {
         closeModal();
     };
-    span1.onclick = function () {
-        closeModal();
-    }
+    // span1.onclick = function () {
+    //     closeModal();
+    // }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target === modal) {
